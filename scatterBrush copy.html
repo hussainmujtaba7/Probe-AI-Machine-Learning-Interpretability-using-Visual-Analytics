@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- adapted from mbostock v4 area brush http://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172-->
+<meta charset="utf-8">
+
+<head>
+  <link type="text/css" rel="stylesheet" href="style.css" />
+  <style type="text/css">
+    svg {
+      font: 10px sans-serif;
+    }
+
+    .selectedLine {
+      fill: none;
+      stroke-width: 3;
+      opacity: 1;
+    }
+
+    .nonSelected {
+      fill: none;
+      shape-rendering: crispEdges;
+      stroke-width: 0.2;
+      opacity: 0.2
+    }
+
+    .foreground path {
+      fill: none;
+    }
+
+    .brush .extent {
+      fill-opacity: .3;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+
+    .axis line,
+    .axis path {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      fill: black;
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+      cursor: move;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="d3.js"></script>
+  <script>
+    var original_data;
+    var derived_data;
+    var global_selected_items;
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
+  </script>
+  <script src="main.js"></script>
+  <script src="data_parallel_coordinate.js"></script>
+  <script src="explanation_parallel_coordinate.js"></script>
+  <script src="data_scatterplot.js"></script>
+  <!-- <div id="scatterArea_explanation"></div> -->
+  <div id="scatterArea"></div>
+  <div id="parallelArea"></div>
+  <div id="parallelArea_explanation"></div>
+</body>
+
+</html>
