@@ -255,5 +255,7 @@ function brush_parallel_chart(
   }
   if (allow_recurse == true) {
     brush_parallel_chart_exp(undefined, global_selected_items, derived_data, false);
+    brush_scatter_plot(undefined, global_selected_items, tsne_original_data, false);
+    brush_scatter_plot_exp(undefined, global_selected_items, tsne_derived_data, false);
   }
 }

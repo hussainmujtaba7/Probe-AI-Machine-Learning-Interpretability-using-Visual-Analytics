@@ -230,6 +230,8 @@ function brush_parallel_chart_exp(
     console.log(selectedIds);
     console.log(global_selected_items.pc.length)
     console.log(global_selected_items.pce.length)
+    console.log(global_selected_items.sp.length)
+    console.log(global_selected_items.spe.length)
     let selectedItems_here = getIntersection(global_selected_items);
     console.log(selectedItems_here);
 
@@ -251,14 +253,10 @@ function brush_parallel_chart_exp(
   }
   if (allow_recurse == true) {
     brush_parallel_chart(undefined, global_selected_items, original_data, false);
+    brush_scatter_plot(undefined, global_selected_items, tsne_original_data, false);
+    brush_scatter_plot_exp(undefined, global_selected_items, tsne_derived_data, false);
+
+
   }
 }
 
-// if (actives.length === 0 ) {
-//         console.log("I am used")
-//     // If no brushes are active, reset the colors of the lines
-//     foreground_PC_exp.style("stroke", function(d) {
-//       return color(d.diagnosis);
-//     });
-
-// } else

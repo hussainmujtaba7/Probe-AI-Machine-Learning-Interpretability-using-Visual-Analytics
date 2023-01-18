@@ -22,6 +22,14 @@
       opacity: 0.2
     }
 
+    .selecteddot {
+      opacity: 0.5;
+    }
+
+    .nonSelecteddot {
+      opacity: 0.2
+    }
+
     .foreground path {
       fill: none;
     }
@@ -49,7 +57,11 @@
 
 <body>
   <script src="d3.js"></script>
+  <script src="tsne.js"></script>
+  <!-- <script src="lasso.js"></script> -->
+  <script src="dimentionality_reduction.js"></script>
   <script>
+    var activeBrush = "red";
     var original_data;
     var derived_data;
     var global_selected_items;
@@ -59,8 +71,11 @@
   <script src="data_parallel_coordinate.js"></script>
   <script src="explanation_parallel_coordinate.js"></script>
   <script src="data_scatterplot.js"></script>
-  <!-- <div id="scatterArea_explanation"></div> -->
+  <script src="explanation_data_scatterplot.js"></script>
+ 
+  
   <div id="scatterArea"></div>
+  <div id="scatterArea_explanation"></div>
   <div id="parallelArea"></div>
   <div id="parallelArea_explanation"></div>
 </body>
