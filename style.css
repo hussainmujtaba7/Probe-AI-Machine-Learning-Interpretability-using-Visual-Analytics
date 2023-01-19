@@ -1,0 +1,122 @@
+svg {
+    font: 10px sans-serif;
+}
+
+.selectedLine {
+    fill: none;
+    stroke-width: 3;
+    opacity: 1;
+}
+
+.nonSelected {
+    fill: none;
+    shape-rendering: crispEdges;
+    stroke-width: 0.2;
+    opacity: 0.2
+}
+
+.selecteddot {
+    opacity: 0.5;
+}
+
+.nonSelecteddot {
+    opacity: 0.2
+}
+
+.foreground path {
+    fill: none;
+}
+
+.brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    fill: black;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}
+
+.plotterGraph {
+    width: 35%;
+    float: left;
+    margin-right: 5%
+}
+
+#top {
+    overflow: hidden;
+    width: 75%;
+    margin-top: 2%;
+}
+
+#bottom {
+    margin-top: 2%;
+    width: 75%;
+    overflow: auto;
+}
+
+.card {
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 14px 0px;
+}
+
+.featuresBox {
+    padding: 10px;
+    border-radius: 5%;
+    border: 2px solid gray;
+    width: 22%;
+    position: relative;
+}
+.fs-label{
+    position: absolute;
+    left: 25%;
+    z-index: 3;
+    background: white;
+    top: -3%;
+    padding: 0px 5px;
+}
+
+.button-91 {
+    color: #fff;
+    padding: 12px 25px;
+    background-color: #38D2D2;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    cursor: pointer;
+
+    display: inline-block;
+    align-self: flex-end;
+    width: 100%;
+    margin-top: 116%;
+}
+
+#pencil {
+    font-size: 20px;
+    display: block;
+}
+
+#loader {
+    height: 35px;
+    width: 35px;
+    display: none;
+}

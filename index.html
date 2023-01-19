@@ -5,59 +5,20 @@
 <head>
   <link type="text/css" rel="stylesheet" href="style.css" />
   <style type="text/css">
-    svg {
-      font: 10px sans-serif;
-    }
 
-    .selectedLine {
-      fill: none;
-      stroke-width: 3;
-      opacity: 1;
-    }
-
-    .nonSelected {
-      fill: none;
-      shape-rendering: crispEdges;
-      stroke-width: 0.2;
-      opacity: 0.2
-    }
-
-    .selecteddot {
-      opacity: 0.5;
-    }
-
-    .nonSelecteddot {
-      opacity: 0.2
-    }
-
-    .foreground path {
-      fill: none;
-    }
-
-    .brush .extent {
-      fill-opacity: .3;
-      stroke: #fff;
-      shape-rendering: crispEdges;
-    }
-
-    .axis line,
-    .axis path {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
-    }
-
-    .axis text {
-      fill: black;
-      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-      cursor: move;
-    }
   </style>
 </head>
 
 <body>
   <script src="d3.js"></script>
   <script src="tsne.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+
+
   <!-- <script src="lasso.js"></script> -->
   <script src="dimentionality_reduction.js"></script>
   <script>
@@ -73,11 +34,31 @@
   <script src="data_scatterplot.js"></script>
   <script src="explanation_data_scatterplot.js"></script>
  
+ 
+
   
-  <div id="scatterArea"></div>
-  <div id="scatterArea_explanation"></div>
-  <div id="parallelArea"></div>
-  <div id="parallelArea_explanation"></div>
+  <div style="display:inline-flex">
+    <div class="card plotterGraph" id="scatterArea"></div>
+    <div class="card plotterGraph" id="scatterArea_explanation"></div>
+    <div class="featuresBox"> 
+      <span class="fs-label">Features Selection</span>
+      <select  id ="inputFeatures"multiple="multiple">
+      </select>
+      <button id="bttn" class="button-91">
+      <span id="pencil">✏️</span>
+      <img id="loader" src="./loader.gif"/>
+      </button>
+  </div>
+  </div>
+
+  <diV>
+    <div class="card" id="top">
+      <div id="parallelArea"></div>
+    </div>
+    <div class="card" id="bottom">
+      <div id="parallelArea_explanation"></div>
+    </div>
+  </diV>
 </body>
 
 </html>
