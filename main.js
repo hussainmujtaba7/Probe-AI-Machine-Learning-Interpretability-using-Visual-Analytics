@@ -89,6 +89,8 @@ let drawGraphs = (selected_features,o_data,i_data) =>{
         'pce': all_data_ids
     };
 
+    desision_tree_variable={'red':[],'green':[]};
+
     tsne_derived_data = dimentionality_reduction_tSNE(derived_data);
     tsne_original_data = dimentionality_reduction_tSNE(original_data);
 

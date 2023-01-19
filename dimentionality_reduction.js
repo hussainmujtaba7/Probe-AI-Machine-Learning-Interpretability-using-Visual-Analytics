@@ -24,7 +24,7 @@ function dimentionality_reduction_tSNE(data) {
     dim: 2,
   });
   tsne.initDataRaw(features);
-  for (var k = 0; k < 100; k++) {
+  for (var k = 0; k < 10; k++) {
     tsne.step(); // every time you call this, solution gets better.
   }
 

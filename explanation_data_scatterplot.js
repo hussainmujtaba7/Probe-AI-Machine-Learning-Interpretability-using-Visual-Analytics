@@ -26,18 +26,25 @@ function drawScatter_exp(data) {
     })
   );
 // Brush for Coordination
-  var brushScatter_exp = d3
-    .brush()
-    .extent([
-      [0, 0],
-      [width, height],
-    ])
-    .on("brush end", function () {
-      brush_scatter_plot_exp(d3.event, global_selected_items, data);
-    })
-    .on("start",null);
-
- //Brush for decision tree
+var brushScatter_exp = d3
+.brush()
+.extent([
+  [0, 0],
+  [width, height],
+]).on("end", null)
+.on("brush", function () {
+  if (activeBrush === "coordinate") {
+    return brush_scatter_plot_exp(d3.event, global_selected_items, data)
+  } else {return null; }
+})
+.on("end", function () {
+  if (activeBrush === "red") {
+    return  brush_analytics_red(data) 
+  } else if (activeBrush === "green") {
+    return brush_analytics_green(data)
+  } else {
+    return null }
+});
 
 
     svg_data_sc_exp = d3
@@ -188,10 +195,86 @@ function brush_scatter_plot_exp(event, selectedItems, data, allow_recurse = true
   }
 }
 
-// function brush_analytics(){
+function brush_analytics_red(data) {
+  var selectedIds = [];
+  var selection = [];
+  var brushExtent = d3.brushSelection(
+    focus_exp.select(".brushScatterExp").node()
+  );
+  if (brushExtent) {
+    selection.push([brushExtent[0][0], brushExtent[0][1]]);
+    selection.push([brushExtent[1][0], brushExtent[1][1]]);
+  }
+  console.log(brushExtent);
+  console.log(selection);
 
+  // If a brush selection exists
+  if (selection.length !== 0) {
+    // Get the selected circles
+    data.forEach(function (d) {
+      var isBrushed =
+        selection[0][0] <= x_sc_exp(d["x"]) &&
+        x_sc_exp(d["x"]) <= selection[1][0] &&
+        selection[0][1] <= y_sc_exp(d["y"]) &&
+        y_sc_exp(d["y"]) <= selection[1][1];
+      if (isBrushed) {
+        console.log(isBrushed);
+        selectedIds.push(d.id);
+      }
+    });
+  }
+  console.log(selectedIds);
 
+  foreground_sc_exp.style("fill", function (d) {
+    if (selectedIds.includes(d.id)) {
+      return "red";
+    } else {
+      return color(d["diagnosis"]);
+    }
+  });
+  desision_tree_variable.red=selectedIds;
+  console.log(desision_tree_variable)
+  activeBrush="green"
+}
 
+function brush_analytics_green(data) {
+  var selectedIds = [];
+  var selection = [];
+  var brushExtent = d3.brushSelection(
+    focus_exp.select(".brushScatterExp").node()
+  );
+  if (brushExtent) {
+    selection.push([brushExtent[0][0], brushExtent[0][1]]);
+    selection.push([brushExtent[1][0], brushExtent[1][1]]);
+  }
+  console.log(brushExtent);
+  console.log(selection);
 
-// }
+  // If a brush selection exists
+  if (selection.length !== 0) {
+    // Get the selected circles
+    data.forEach(function (d) {
+      var isBrushed =
+        selection[0][0] <= x_sc_exp(d["x"]) &&
+        x_sc_exp(d["x"]) <= selection[1][0] &&
+        selection[0][1] <= y_sc_exp(d["y"]) &&
+        y_sc_exp(d["y"]) <= selection[1][1];
+      if (isBrushed) {
+        console.log(isBrushed);
+        selectedIds.push(d.id);
+      }
+    });
+  }
+  console.log(selectedIds);
 
+  foreground_sc_exp.style("fill", function (d) {
+    if (selectedIds.includes(d.id)) {
+      return "green";
+    } else {
+      return color(d["diagnosis"]);
+    }
+  });
+  desision_tree_variable.green=selectedIds;
+  console.log(desision_tree_variable)
+  activeBrush="red"
+}
