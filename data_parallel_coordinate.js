@@ -28,8 +28,8 @@ function drawParallel(data) {
       if (d == "diagnosis" || d == "id") {
         return false;
       }
-      return (y_PC[d] = 
-        d3.scaleLinear()
+      return (y_PC[d] = d3
+        .scaleLinear()
         .domain(
           d3.extent(data, function (p) {
             return +p[d];
@@ -50,7 +50,19 @@ function drawParallel(data) {
       return color(d["diagnosis"]);
     })
     .attr("class", "forepath")
-    .attr("d", path);
+    .attr("d", path)
+    .on("mouseover", function(d) {
+      d3.select(this)
+      .transition()
+      .duration(200)
+      .style("stroke-width", "4px");
+  })
+  .on("mouseout", function(d) {
+      d3.select(this)
+      .transition()
+      .duration(200)
+      .style("stroke-width", "2px");
+  });
 
   // Add a group element for each dimension.
   var g = svg_data_PC
@@ -122,8 +134,18 @@ function drawParallel(data) {
           .extent([
             [-8, 0],
             [8, height],
-        ]).on('start',null).on("brush end",function () {
-            brush_parallel_chart(d3.event, global_selected_items, data);
+          ])
+          .on("start", null)
+          .on("brush end", function () {
+            if (activeBrush === "coordinate") {
+              return brush_parallel_chart(
+                d3.event,
+                global_selected_items,
+                data
+              );
+            } else {
+              return null;
+            }
           }))
       );
     })
@@ -140,10 +162,6 @@ function drawParallel(data) {
     return g.transition().duration(500);
   }
 
-  function brushstart() {
-    d3.event.sourceEvent.stopPropagation();
-  }
-
   // Returns the path for a given data point.
   function path(d) {
     return line(
@@ -152,8 +170,6 @@ function drawParallel(data) {
       })
     );
   }
-  // Create the brushing function
-  // Add and store a brush for each axis.
 }
 
 function brush_parallel_chart(
@@ -173,7 +189,7 @@ function brush_parallel_chart(
     }
     return intersection;
   }
-  global_selected_items=selectedItems;
+  global_selected_items = selectedItems;
   var selectedIds = [];
   var actives = [];
   svg_data_PC
@@ -190,7 +206,7 @@ function brush_parallel_chart(
   console.log(actives);
 
   if (actives.length !== 0) {
-    console.log(data)
+    console.log(data);
     data.forEach(function (d) {
       var isBrushed = actives.every(function (active) {
         var dim = active.dimension;
@@ -231,8 +247,8 @@ function brush_parallel_chart(
     // If there are active brushes, find the ids of the data elements that are brushed over
 
     global_selected_items.pc = selectedIds;
-    console.log(global_selected_items.pc.length)
-    console.log(global_selected_items.pce.length)
+    console.log(global_selected_items.pc.length);
+    console.log(global_selected_items.pce.length);
     console.log(selectedIds);
     let selectedItems_here = getIntersection(global_selected_items);
     console.log(selectedItems_here);
@@ -254,8 +270,38 @@ function brush_parallel_chart(
     });
   }
   if (allow_recurse == true) {
-    brush_parallel_chart_exp(undefined, global_selected_items, derived_data, false);
-    brush_scatter_plot(undefined, global_selected_items, tsne_original_data, false);
-    brush_scatter_plot_exp(undefined, global_selected_items, tsne_derived_data, false);
+    brush_parallel_chart_exp(
+      undefined,
+      global_selected_items,
+      derived_data,
+      false
+    );
+    brush_scatter_plot(
+      undefined,
+      global_selected_items,
+      tsne_original_data,
+      false
+    );
+    brush_scatter_plot_exp(
+      undefined,
+      global_selected_items,
+      tsne_derived_data,
+      false
+    );
   }
+}
+
+function clear_brushes_PC(clear_pc) {
+  global_selected_items = clear_pc;
+  console.log("clear_brushes_PC");
+  svg_data_PC
+    .selectAll(".dimension .brush")
+    .filter(function () {
+      return d3.brushSelection(this);
+    })
+    .each(function (d) {
+      d3.select(this).call(y_PC[d].brush.move, null);
+    });
+  global_selected_items["pc"] = all_data_ids;
+  brush_parallel_chart(undefined, global_selected_items, original_data, true);
 }

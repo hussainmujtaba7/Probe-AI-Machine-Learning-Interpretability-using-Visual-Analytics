@@ -3,6 +3,7 @@ var x_sc_exp;
 var y_sc_exp;
 var foreground_sc_exp;
 var focus_exp;
+var brushScatter_exp;
 
 function drawScatter_exp(data) {
   var margin = { top: 20, right: 20, bottom: 20, left: 50 },
@@ -26,7 +27,7 @@ function drawScatter_exp(data) {
     })
   );
 // Brush for Coordination
-var brushScatter_exp = d3
+brushScatter_exp = d3
 .brush()
 .extent([
   [0, 0],
@@ -66,6 +67,11 @@ var brushScatter_exp = d3
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  focus_exp
+    .append("g")
+    .attr("class", "brushScatterExp")
+    .call(brushScatter_exp);
+
   // append scatter plot to main chart area
   foreground_sc_exp = focus_exp.append("g")
   .attr("clip-path", "url(#clip2)")
@@ -84,6 +90,20 @@ var brushScatter_exp = d3
     })
     .style("fill", function (d) {
       return color(+d["diagnosis"]);
+    })
+    .on("mouseover", function(d) {
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .attr("opacity", 1)
+        .attr("r", 6);
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .attr("opacity", "0.4")
+        .attr("r", 4);
     });
 
     focus_exp
@@ -94,10 +114,7 @@ var brushScatter_exp = d3
 
     focus_exp.append("g").attr("class", "axis axis--y").call(yAxis);
 
-    focus_exp
-    .append("g")
-    .attr("class", "brushScatterExp")
-    .call(brushScatter_exp);
+ 
 
 }
 
@@ -166,9 +183,6 @@ function brush_scatter_plot_exp(event, selectedItems, data, allow_recurse = true
     // If there are active brushes, find the ids of the data elements that are brushed over
 
     global_selected_items.spe = selectedIds;
-    console.log(global_selected_items.pc.length);
-    console.log(global_selected_items.pce.length);
-    console.log(selectedIds);
     let selectedItems_here = getIntersection(global_selected_items);
     console.log(selectedItems_here);
 
@@ -234,7 +248,6 @@ function brush_analytics_red(data) {
   });
   desision_tree_variable.red=selectedIds;
   console.log(desision_tree_variable)
-  activeBrush="green"
 }
 
 function brush_analytics_green(data) {
@@ -276,5 +289,14 @@ function brush_analytics_green(data) {
   });
   desision_tree_variable.green=selectedIds;
   console.log(desision_tree_variable)
-  activeBrush="red"
+}
+
+function clear_brushes_SCE(clear_pc) {
+  global_selected_items=clear_pc;
+  console.log("clear_brushes_SCE")
+  focus_exp
+  .selectAll(".brushScatterExp").call(brushScatter_exp.move, null);
+  global_selected_items['spe']=all_data_ids;
+  brush_scatter_plot_exp(undefined, global_selected_items, derived_data, true);
+  
 }

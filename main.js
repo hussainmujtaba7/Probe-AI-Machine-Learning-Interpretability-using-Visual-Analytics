@@ -38,6 +38,13 @@ d3.csv("lime_outputbreast_cancer_data_updated.csv", function (error, i_data) {
 
         selected_features = Object.keys(o_data[0])
         drawGraphs(selected_features,o_data,i_data);
+        $("#newButton1").click(function(){clear_brushes_PCE(global_selected_items)})
+        $("#newButton2").click(function(){clear_brushes_PC(global_selected_items)})
+        $("#newButton3").click(function(){clear_brushes_SC(global_selected_items)})
+        $("#newButton4").click(function(){clear_brushes_SCE(global_selected_items)})
+        $("#newButton5").click(function(){activeBrush = "coordinate"})
+        $("#newButton6").click(function(){activeBrush = "red"})
+        $("#newButton7").click(function(){activeBrush = "green"})
     });
 });
 
@@ -102,6 +109,7 @@ let drawGraphs = (selected_features,o_data,i_data) =>{
     drawScatter_exp(tsne_derived_data);
     drawParallel(original_data);
     drawParallel_exp(derived_data, min, max);
+
     
     // document.getElementById('loader').style.display = 'none';
     // document.getElementById('pencil').style.display = 'block';

@@ -3,6 +3,8 @@ var x_sc;
 var y_sc;
 var foreground_sc;
 var focus;
+var brushScatter;
+
 
 function drawScatter(data) {
   var margin = { top: 20, right: 20, bottom: 20, left: 50 },
@@ -26,15 +28,26 @@ function drawScatter(data) {
     })
   );
 
-  var brushScatter = d3
+  brushScatter = d3
     .brush()
     .extent([
       [0, 0],
       [width, height],
     ])
-    .on("brush", function () {
-      brush_scatter_plot(d3.event, global_selected_items, data);
-    }).on("start",null);
+.on("brush", function () {
+  if (activeBrush === "coordinate") {
+    return brush_scatter_plot_exp(d3.event, global_selected_items, data)
+  } else {return null; }
+})
+.on("end", function () {
+  if (activeBrush === "red") {
+    return  null
+  } else if (activeBrush === "green") {
+    return null
+  } else {
+    return null }
+});
+
 
   svg_data_sc = d3
     .select("#scatterArea")
@@ -54,6 +67,11 @@ function drawScatter(data) {
     .append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+  focus
+    .append("g")
+    .attr("class", "brushScatter")
+    .call(brushScatter);
 
   // append scatter plot to main chart area
   foreground_sc = focus.append("g")
@@ -73,6 +91,20 @@ function drawScatter(data) {
     })
     .style("fill", function (d) {
       return color(+d["diagnosis"]);
+    })
+    .on("mouseover", function(d) {
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .attr("opacity", 1)
+        .attr("r", 6);
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .attr("opacity", "0.4")
+        .attr("r", 4);
     });
 
   focus
@@ -83,22 +115,10 @@ function drawScatter(data) {
 
   focus.append("g").attr("class", "axis axis--y").call(yAxis);
 
-  // focus
-  //   .append("text")
-  //   .attr("transform", "rotate(-90)")
-  //   .attr("y", 0 - margin.left)
-  //   .attr("x", 0 - height / 2)
-  //   .attr("dy", "1em")
-  //   .style("text-anchor", "middle")
-  //   .text("PCA");
-
-  focus
-    .append("g")
-    .attr("class", "brushScatter")
-    .call(brushScatter);
 }
 
 function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
+
   // Get the brush selection
   console.log("brush_scatter_plot");
   function getIntersection(obj) {
@@ -193,3 +213,12 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
   }
 }
 
+function clear_brushes_SC(clear_pc) {
+  global_selected_items=clear_pc;
+  console.log("clear_brushes_SC")
+  focus
+  .selectAll(".brushScatter").call(brushScatter.move, null);
+  global_selected_items['sp']=all_data_ids;
+  brush_scatter_plot(undefined, global_selected_items, original_data, true);
+  
+}

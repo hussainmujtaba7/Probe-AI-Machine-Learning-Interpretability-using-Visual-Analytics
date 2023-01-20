@@ -15,6 +15,11 @@ function drawParallel_exp(data,min,max) {
 
   var line = d3.line();
 
+// Create a tooltip div
+let tooltip = d3.select("body").append("div")
+.attr("class", "tooltip")
+.style("opacity", 0);
+
   svg_data_PC_exp = d3
     .select("#parallelArea_explanation")
     .append("svg")
@@ -46,7 +51,22 @@ function drawParallel_exp(data,min,max) {
       return color(d["diagnosis"]);
     })
     .attr("class", "forepath")
-    .attr("d", path);
+    .attr("d", path)
+    .on("mouseover", function(d) {
+      // Show the tooltip
+      tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+      tooltip.html(`<strong>Data Point: </strong> ${d.diagnosis} <br> <strong>Value: </strong> ${d.id}`)
+          .style("left", (d3.event.pageX + 5) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
+  })
+  .on("mouseout", function(d) {
+      // Hide the tooltip
+      tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+  }); 
 
   // Add a group element for each dimension.
   var g = svg_data_PC_exp
@@ -119,8 +139,11 @@ function drawParallel_exp(data,min,max) {
           .extent([
             [-8, 0],
             [8, height],
-          ]).on('start',null).on('brush end',function () {
-            brush_parallel_chart_exp(d3.event, global_selected_items, data);
+          ]).on('start',null)
+          .on("brush end", function () {
+            if (activeBrush === "coordinate") {
+              return brush_parallel_chart_exp(d3.event, global_selected_items, data)
+            } else {return null; }
           }))
       );
     })
@@ -137,9 +160,6 @@ function drawParallel_exp(data,min,max) {
     return g.transition().duration(500);
   }
 
-  function brushstart() {
-    d3.event.sourceEvent.stopPropagation();
-  }
 
   // Returns the path for a given data point.
   function path(d) {
@@ -229,11 +249,6 @@ function brush_parallel_chart_exp(
     // If there are active brushes, find the ids of the data elements that are brushed over
 
     global_selected_items.pce = selectedIds;
-    console.log(selectedIds);
-    console.log(global_selected_items.pc.length)
-    console.log(global_selected_items.pce.length)
-    console.log(global_selected_items.sp.length)
-    console.log(global_selected_items.spe.length)
     let selectedItems_here = getIntersection(global_selected_items);
     console.log(selectedItems_here);
 
@@ -260,5 +275,20 @@ function brush_parallel_chart_exp(
 
 
   }
+}
+
+function clear_brushes_PCE(clear_pc) {
+  global_selected_items=clear_pc;
+  console.log("clear_brushes_PC")
+  svg_data_PC_exp
+  .selectAll(".dimension .brush")
+  .filter(function () {
+    return d3.brushSelection(this);
+  }).each(function(d) {
+    d3.select(this).call(y_PC_exp[d].brush.move, null);
+  })
+  global_selected_items['pce']=all_data_ids;
+  brush_parallel_chart_exp(undefined, global_selected_items, derived_data, true);
+  
 }
 

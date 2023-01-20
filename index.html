@@ -22,11 +22,12 @@
   <!-- <script src="lasso.js"></script> -->
   <script src="dimentionality_reduction.js"></script>
   <script>
-    var activeBrush = "red";
+    var activeBrush = "coordinate";
     var original_data;
     var derived_data;
     var desision_tree_variable;
     var global_selected_items;
+    var all_data_ids;
     var color = d3.scaleOrdinal(d3.schemeCategory10);
   </script>
   <script src="main.js"></script>
@@ -39,17 +40,17 @@
 
   
   <div style="display:inline-flex">
-    <div class="card plotterGraph" id="scatterArea"></div>
-    <div class="card plotterGraph" id="scatterArea_explanation"></div>
     <div class="featuresBox"> 
       <span class="fs-label">Features Selection</span>
       <select  id ="inputFeatures"multiple="multiple">
       </select>
-      <button id="bttn" class="button-91">
-      <span id="pencil">✏️</span>
-      <img id="loader" src="./loader.gif"/>
+      <button id="drawGraphs" class="button-91">
+        <span id="pencil">✏️</span>
+        <img id="loader" src="./loader.gif"/>
       </button>
-  </div>
+    </div>
+    <div class="card plotterGraph" id="scatterArea"></div>
+    <div class="card plotterGraph" id="scatterArea_explanation"></div>
   </div>
 
   <diV>
@@ -60,6 +61,14 @@
       <div id="parallelArea_explanation"></div>
     </div>
   </diV>
+  <button id="newButton1">clear PCE</button>
+  <button id="newButton2">clear PC</button>
+  <button id="newButton3">clear SC</button>
+  <button id="newButton4">clear SCE</button>
+  <button id="newButton5">coordinate mode</button>
+  <button id="newButton6">red cluster </button>
+  <button id="newButton7">green cluster</button>
+
 </body>
 
 </html>
