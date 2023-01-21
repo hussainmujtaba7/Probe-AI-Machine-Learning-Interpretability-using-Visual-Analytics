@@ -40,7 +40,6 @@ let updateMode = () => {
     activeBrush = $('input[name="mode"]:checked').val();
     let title = (activeBrush == "coordinate") ? "Co-ordinated Mode" : "Cluster Mode";
     $("#mode-title").text(title);
-    console.log(activeBrush)
 }
 
 let callDrawGraphs = () => {

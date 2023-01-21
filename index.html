@@ -28,6 +28,7 @@
     var desision_tree_variable;
     var global_selected_items;
     var all_data_ids;
+    let dotSize = 3;
     var color = d3.scaleOrdinal(d3.schemeCategory10);
   </script>
   <script src="main.js"></script>
@@ -57,7 +58,7 @@
       <span class="fs-label"><b>Features Selection</b></span>
       <select id="inputFeatures" multiple="multiple"></select>
       <button id="drawGraphs" class="button-91" onclick="callDrawGraphs()">
-        <span id="pencil" >✏️</span>
+        <span id="pencil">✏️</span>
       </button>
     </div>
 
@@ -68,18 +69,30 @@
     <div><span id="mode-title">Co-ordinated Mode</span></div>
     <div style="display:inline-flex;margin-top: 5px;">
       <div class="card plotterGraph" id="scatterArea"></div>
-      <div>
+      <div style="margin-right:10px ;">
         <button class='reset-btn' id="reset-btn1"><img class="reset-img" src="./reset.png"></button>
-        <br><b>Legend</b><br>
-        Malignant
-        Benign
+        <div style="font-weight: bold; margin-top: 20px;">Legend</div>
+        <div style="display: flex;">
+          <div class="legend orange"></div>
+          <div>Malignant</div>
+        </div>
+        <div style="display: flex;">
+          <div class="legend blue"></div>
+          <div>Benign</div>
+        </div>
       </div>
       <div class="card plotterGraph" id="scatterArea_explanation"></div>
       <div>
         <button class='reset-btn' id="reset-btn2"><img class="reset-img" src="./reset.png"></button>
-        <br><b>Legend</b><br>
-        Malignant
-        Benign
+        <div style="font-weight: bold; margin-top: 20px;">Legend</div>
+        <div style="display: flex;">
+          <div class="legend orange"></div>
+          <div>Malignant</div>
+        </div>
+        <div style="display: flex;">
+          <div class="legend blue"></div>
+          <div>Benign</div>
+        </div>
       </div>
     </div>
 
@@ -90,9 +103,15 @@
         </div>
         <div style="margin-left: 20px;margin-top: 5px;">
           <button class='reset-btn' id="reset-btn3"><img class="reset-img" src="./reset.png"></button>
-          <br><b>Legend</b><br>
-          Malignant<br>
-          Benign<br>
+          <div style="font-weight: bold; margin-top: 20px;">Legend</div>
+          <div style="display: flex;">
+            <div class="legend orange"></div>
+            <div>Malignant</div>
+          </div>
+          <div style="display: flex;">
+            <div class="legend blue"></div>
+            <div>Benign</div>
+          </div>
         </div>
       </div>
 
@@ -102,10 +121,15 @@
         </div>
 
         <div style="margin-left: 20px;margin-top: 5px;">
-          <button class='reset-btn' id="reset-btn4"><img class="reset-img" src="./reset.png"></button>
-          <br><b>Legend</b><br>
-          Malignant<br>
-          Benign<br>
+          <div style="font-weight: bold; margin-top: 20px;">Legend</div>
+          <div style="display: flex;">
+            <div class="legend orange"></div>
+            <div>Malignant</div>
+          </div>
+          <div style="display: flex;">
+            <div class="legend blue"></div>
+            <div>Benign</div>
+          </div>
         </div>
       </div>
     </diV>
