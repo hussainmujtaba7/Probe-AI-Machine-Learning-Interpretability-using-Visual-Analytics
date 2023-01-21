@@ -34,7 +34,7 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
         $("#reset-btn2").click(function () { clear_brushes_SCE(global_selected_items) })
         $("#reset-btn3").click(function () { clear_brushes_PC(global_selected_items) })
         $("#reset-btn4").click(function () { clear_brushes_PCE(global_selected_items) })
-        $("#dTree-btn").click(function () { test_flask() })
+        $("#dTree-btn").click(function () { $('#chartBox').empty();$('#dtree-box').addClass('show'); test_flask() })
     });
 });
 let updateMode = () => {

@@ -14,12 +14,14 @@
   <script src="{{ url_for('static', filename='scripts/js/d3.js') }}"></script>
   <script src="{{ url_for('static', filename='scripts/js/tsne.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+    integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="{{ url_for('static', filename='scripts/js/dimentionality_reduction.js') }}"></script>
   <script>
@@ -42,10 +44,11 @@
 
   <div id="sidebar" class="sidebar">
     <div class="title-logo-container">
-      <img id="cpu" class="title-logo" src="{{ url_for('static', filename='images/cpu.png') }}"/>
+      <img id="cpu" class="title-logo" src="{{ url_for('static', filename='images/cpu.png') }}" />
       <img id="analysis" class="title-logo" src="{{ url_for('static', filename='images/analysis.png') }}" />
     </div>
-    <button title="Toggle Menu" id="closeBtn" class="sidebar-toggle-btn"> <img src="{{ url_for('static', filename='images/menu.png') }}"></button>
+    <button title="Toggle Menu" id="closeBtn" class="sidebar-toggle-btn"> <img
+        src="{{ url_for('static', filename='images/menu.png') }}"></button>
     <div id='mode-select-box' class="mode-select-box pointer">
       <span class="ms-label"> <b>Mode Selection </b></span> <br>
       <input type="radio" id="coord-mode" name="mode" onClick="updateMode()" checked value="coordinate">
@@ -78,7 +81,8 @@
     <div style="display:inline-flex;margin-top: 5px;">
       <div class="card plotterGraph" id="scatterArea"></div>
       <div style="margin-right:10px ;">
-        <button title="Reset" class='reset-btn' id="reset-btn1"><img class="reset-img" src="{{ url_for('static', filename='images/reset.png') }}"></button>
+        <button title="Reset" class='reset-btn' id="reset-btn1"><img class="reset-img"
+            src="{{ url_for('static', filename='images/reset.png') }}"></button>
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
@@ -91,7 +95,8 @@
       </div>
       <div class="card plotterGraph" id="scatterArea_explanation"></div>
       <div>
-        <button title="Reset" class='reset-btn' id="reset-btn2"><img class="reset-img" src="{{ url_for('static', filename='images/reset.png') }}"></button>
+        <button title="Reset" class='reset-btn' id="reset-btn2"><img class="reset-img"
+            src="{{ url_for('static', filename='images/reset.png') }}"></button>
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
@@ -110,14 +115,15 @@
           <div id="parallelArea"></div>
         </div>
         <div style="margin-left: 20px;margin-top: 5px;">
-          <button title="Reset" class='reset-btn' id="reset-btn3"><img class="reset-img" src="{{ url_for('static', filename='images/reset.png') }}"></button>
+          <button title="Reset" class='reset-btn' id="reset-btn3"><img class="reset-img"
+              src="{{ url_for('static', filename='images/reset.png') }}"></button>
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
-            <div class="legend orange"></div>
+            <div class="legend-bar orange"></div>
             <div style="margin-top: 3px;">Malignant</div>
           </div>
           <div style="display: flex;">
-            <div class="legend blue"></div>
+            <div class="legend-bar blue"></div>
             <div style="margin-top: 3px;">Benign</div>
           </div>
         </div>
@@ -129,23 +135,31 @@
         </div>
 
         <div style="margin-left: 20px;margin-top: 5px;">
-          <button title="Reset" class='reset-btn' id="reset-btn4"><img class="reset-img" src="{{ url_for('static', filename='images/reset.png') }}"></button>
+          <button title="Reset" class='reset-btn' id="reset-btn4"><img class="reset-img"
+              src="{{ url_for('static', filename='images/reset.png') }}"></button>
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
-            <div class="legend orange"></div>
+            <div class="legend-bar orange"></div>
             <div style="margin-top: 3px;">Malignant</div>
           </div>
           <div style="display: flex;">
-            <div class="legend blue"></div>
+            <div class="legend-bar blue"></div>
             <div style="margin-top: 3px;">Benign</div>
           </div>
         </div>
+      </div>
+      <div class="dtree-container" id="dtree-box">
+        <span>Decision Tree</span>
+        <div id="chartBox" class="dtree-box"></div>
       </div>
     </diV>
   </div>
 
 
   <script>
+    var file_name = "{{ url_for('static', filename='scripts/js/structureC1.json') }}"
+    var catPng = "{{ url_for('static', filename='images/cat.png') }}"
+    var numPng = "{{ url_for('static', filename='images/num.png') }}"
     $("#closeBtn").click(function () {
       $("#sidebar").toggleClass('sidebar_large');
       $("#main-content").toggleClass('main-content_small')
@@ -154,7 +168,6 @@
       $("#cpu").toggleClass('resize-logo')
       $("#analysis").toggleClass('resize-logo')
       $("#dTree-btn").toggleClass('show')
-
     });
   </script>
 </body>

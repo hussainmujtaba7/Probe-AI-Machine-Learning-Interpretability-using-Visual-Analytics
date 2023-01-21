@@ -1,0 +1,19 @@
+{
+    "pred": "1 of 0, 1 of 1",
+    "side": "right",
+    "name": "texture_se > 0.03",
+    "type": "numerical",
+    "size": 2.0,
+    "children": [
+        {
+            "name": "0 of 0, 1 of 1",
+            "size": 1.0,
+            "side": "right"
+        },
+        {
+            "name": "1 of 0, 0 of 1",
+            "size": 1.0,
+            "side": "left"
+        }
+    ]
+}
