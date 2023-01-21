@@ -38,9 +38,18 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
     });
 });
 let updateMode = () => {
+    let mode1 = (activeBrush === 'green' || activeBrush === 'red') ;
     activeBrush = $('input[name="mode"]:checked').val();
+    let mode2 = (activeBrush ==  "coordinate");
+
     let title = (activeBrush == "coordinate") ? "Co-ordinated Mode" : "Cluster Mode";
     $("#mode-title").text(title);
+
+    if(mode1 == mode2 ){ 
+        activeBrush = "red"; //graph resets only if its red or green
+        $("#reset-btn2").click(); $("#reset-btn1").click(); $("#reset-btn3").click(); $("#reset-btn4").click();
+        activeBrush = $('input[name="mode"]:checked').val(); //adding back the original value
+    }
 }
 
 let callDrawGraphs = () => {
