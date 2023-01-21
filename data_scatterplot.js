@@ -7,7 +7,7 @@ var brushScatter;
 
 
 function drawScatter(data) {
-  var margin = { top: 20, right: 20, bottom: 20, left: 50 },
+  var margin = { top: 20, right: 40, bottom: 20, left: 50 },
     width = 400 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
@@ -34,19 +34,20 @@ function drawScatter(data) {
       [0, 0],
       [width, height],
     ])
-.on("brush", function () {
-  if (activeBrush === "coordinate") {
-    return brush_scatter_plot_exp(d3.event, global_selected_items, data)
-  } else {return null; }
-})
-.on("end", function () {
-  if (activeBrush === "red") {
-    return  null
-  } else if (activeBrush === "green") {
-    return null
-  } else {
-    return null }
-});
+    .on("brush", function () {
+      if (activeBrush === "coordinate") {
+        return brush_scatter_plot_exp(d3.event, global_selected_items, data)
+      } else { return null; }
+    })
+    .on("end", function () {
+      if (activeBrush === "red") {
+        return null
+      } else if (activeBrush === "green") {
+        return null
+      } else {
+        return null
+      }
+    });
 
 
   svg_data_sc = d3
@@ -67,7 +68,7 @@ function drawScatter(data) {
     .append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  
+
   focus
     .append("g")
     .attr("class", "brushScatter")
@@ -75,7 +76,7 @@ function drawScatter(data) {
 
   // append scatter plot to main chart area
   foreground_sc = focus.append("g")
-  .attr("clip-path", "url(#clip1)")
+    .attr("clip-path", "url(#clip1)")
     .selectAll("dot")
     .data(data)
     .enter()
@@ -92,14 +93,14 @@ function drawScatter(data) {
     .style("fill", function (d) {
       return color(+d["diagnosis"]);
     })
-    .on("mouseover", function(d) {
+    .on("mouseover", function (d) {
       d3.select(this)
         .transition()
         .duration(200)
         .attr("opacity", 1)
         .attr("r", 6);
     })
-    .on("mouseout", function(d) {
+    .on("mouseout", function (d) {
       d3.select(this)
         .transition()
         .duration(200)
@@ -134,9 +135,9 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
 
   global_selected_items = selectedItems;
   var selectedIds = [];
-  var selection=[]
+  var selection = []
   var brushExtent = d3.brushSelection(focus.select(".brushScatter").node());
-  if(brushExtent){
+  if (brushExtent) {
     selection.push([brushExtent[0][0], brushExtent[0][1]]);
     selection.push([brushExtent[1][0], brushExtent[1][1]]);
   }
@@ -161,19 +162,19 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
   }
   console.log(selectedIds);
 
-  if (selectedIds.length === 0 && selection.length===0 ) {
+  if (selectedIds.length === 0 && selection.length === 0) {
     console.log("selectedIds.length === 0");
     let selectedItems_other = getIntersection(global_selected_items);
     console.log(selectedItems_other)
 
-    foreground_sc.attr("r", function(d) {
+    foreground_sc.attr("r", function (d) {
       if (selectedItems_other.includes(d.id)) {
         return "5";
       } else {
         return "2";
       }
     });
-    foreground_sc.attr("class", function(d) {
+    foreground_sc.attr("class", function (d) {
       if (selectedItems_other.includes(d.id)) {
         return "selecteddot";
       } else {
@@ -207,18 +208,18 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
     });
   }
   if (allow_recurse == true) {
-    brush_parallel_chart_exp(undefined,global_selected_items,derived_data,false);
-    brush_parallel_chart(undefined,global_selected_items,original_data,false);
-    brush_scatter_plot_exp(undefined,global_selected_items,tsne_derived_data,false);
+    brush_parallel_chart_exp(undefined, global_selected_items, derived_data, false);
+    brush_parallel_chart(undefined, global_selected_items, original_data, false);
+    brush_scatter_plot_exp(undefined, global_selected_items, tsne_derived_data, false);
   }
 }
 
 function clear_brushes_SC(clear_pc) {
-  global_selected_items=clear_pc;
+  global_selected_items = clear_pc;
   console.log("clear_brushes_SC")
   focus
-  .selectAll(".brushScatter").call(brushScatter.move, null);
-  global_selected_items['sp']=all_data_ids;
+    .selectAll(".brushScatter").call(brushScatter.move, null);
+  global_selected_items['sp'] = all_data_ids;
   brush_scatter_plot(undefined, global_selected_items, original_data, true);
-  
+
 }

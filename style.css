@@ -1,7 +1,15 @@
 svg {
     font: 10px sans-serif;
 }
- 
+
+.axis-grid line {
+    stroke: #def;
+    border: 1px solid white !important;
+}
+
+.axis text {
+    font-size: 8px;
+}
 
 .selectedLine {
     fill: none;
@@ -48,19 +56,18 @@ svg {
 }
 
 .plotterGraph {
-    width: 35%;
     float: left;
-    margin-right: 5%
+    margin-right: 2%
 }
 
 #top {
     overflow: hidden;
     width: 75%;
-    margin-top: 2%;
+    /* margin-top: 2%; */
 }
 
 #bottom {
-    margin-top: 2%;
+    /* margin-top: 2%; */
     width: 75%;
     overflow: auto;
 }
@@ -71,18 +78,45 @@ svg {
     box-shadow: 2px 3px 14px 0px;
 }
 
+.mode-select-box {
+    margin-top: 50%;
+    display: none;
+    border: 2px solid gray;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.pointer,
+.pointer input {
+    cursor: pointer;
+}
+
+.ms-label {
+    position: absolute;
+    left: 28%;
+    z-index: 3;
+    background: #ECECEE;
+    border-radius: 5%;
+    top: 16%;
+    padding: 0px 5px;
+}
+
 .featuresBox {
+    margin-top: 15%;
     padding: 10px;
     border-radius: 5%;
     border: 2px solid gray;
-    width: 22%;
+    width: 90%;
     position: relative;
+    display: none;
 }
-.fs-label{
+
+.fs-label {
     position: absolute;
     left: 25%;
     z-index: 3;
-    background: white;
+    background: #ECECEE;
+    border-radius: 5%;
     top: -3%;
     padding: 0px 5px;
 }
@@ -120,4 +154,126 @@ svg {
     height: 35px;
     width: 35px;
     display: none;
+}
+
+.grid-container {
+    display: flex;
+    transition: 1s ease;
+}
+.ms-parent{
+    width: 230px !important;
+}
+
+.sidebar {
+    width: 10%;
+    transition: 1s ease;
+    position: relative;
+    margin-right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: lightgrey;
+    background: radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%);
+}
+
+body {
+    background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+}
+
+.main-content {
+    width: 90%;
+    height: 100%;
+    transition: 1s ease;
+}
+
+.main-content_small {
+    width: 70%;
+}
+
+.sidebar_large {
+    max-width: 260px;
+    width: 30%;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+#closeBtn {
+    position: absolute;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, .3);
+    left: 100%;
+    top: 2rem;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.reset-img {
+    width: 30px;
+    height: 30px;
+}
+
+.reset-btn {
+    padding-top: 7px;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    cursor: pointer;
+}
+
+#mode-title {
+    font-style: italic;
+    font-size: 20px;
+}
+
+
+
+#cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    display:none;
+}
+
+@-webkit-keyframes spin {
+	from {-webkit-transform:rotate(0deg);}
+	to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+#cover-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:40px;height:40px;
+    border-style:solid;
+    border-color:black;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
 }

@@ -169,8 +169,6 @@ let tooltip = d3.select("body").append("div")
       })
     );
   }
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('pencil').style.display = 'block';
 }
 
 function brush_parallel_chart_exp(
