@@ -3,15 +3,15 @@
 <meta charset="utf-8">
 
 <head>
-  <link type="text/css" rel="stylesheet" href="style.css" />
+  <link type="text/css" rel="stylesheet" href="./assets/scripts/css/style.css" />
   <style type="text/css">
 
   </style>
 </head>
 
 <body class='grid-container'>
-  <script src="d3.js"></script>
-  <script src="tsne.js"></script>
+  <script src="./assets/scripts/js/d3.js"></script>
+  <script src="./assets/scripts/js/tsne.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
@@ -20,7 +20,7 @@
 
 
   <!-- <script src="lasso.js"></script> -->
-  <script src="dimentionality_reduction.js"></script>
+  <script src="./assets/scripts/js/dimentionality_reduction.js"></script>
   <script>
     var activeBrush = "coordinate";
     var original_data;
@@ -28,19 +28,21 @@
     var desision_tree_variable;
     var global_selected_items;
     var all_data_ids;
-    let dotSize = 3;
     var color = d3.scaleOrdinal(d3.schemeCategory10);
   </script>
   <script src="main.js"></script>
-  <script src="data_parallel_coordinate.js"></script>
-  <script src="explanation_parallel_coordinate.js"></script>
-  <script src="data_scatterplot.js"></script>
-  <script src="explanation_data_scatterplot.js"></script>
+  <script src="./assets/scripts/js/data_parallel_coordinate.js"></script>
+  <script src="./assets/scripts/js/explanation_parallel_coordinate.js"></script>
+  <script src="./assets/scripts/js/data_scatterplot.js"></script>
+  <script src="./assets/scripts/js/explanation_data_scatterplot.js"></script>
 
 
   <div id="sidebar" class="sidebar">
-    <button id="closeBtn" class="sidebar-toggle-btn"> <img src="./menu.png"></button>
-
+    <div class="title-logo-container">
+      <img id="cpu" class="title-logo" src="./assets/images/cpu.png" />
+      <img id="analysis" class="title-logo" src="./assets/images/analysis.png" />
+    </div>
+    <button title="Toggle Menu" id="closeBtn" class="sidebar-toggle-btn"> <img src="./assets/images/menu.png"></button>
     <div id='mode-select-box' class="mode-select-box pointer">
       <span class="ms-label"> <b>Mode Selection </b></span> <br>
       <input type="radio" id="coord-mode" name="mode" onClick="updateMode()" checked value="coordinate">
@@ -53,11 +55,14 @@
         <label style="color: green;">Green</label><br>
       </div>
     </div>
+    <div>
+      <button id="dTree-btn" title="Draw Decision Tree" class="button-91">🌲🌳🌴</button>
+    </div>
 
     <div class="featuresBox" id="featuresBox">
       <span class="fs-label"><b>Features Selection</b></span>
       <select id="inputFeatures" multiple="multiple"></select>
-      <button id="drawGraphs" class="button-91" onclick="callDrawGraphs()">
+      <button title="Draw Graphs" id="drawGraphs" class="button-91" onclick="callDrawGraphs()">
         <span id="pencil">✏️</span>
       </button>
     </div>
@@ -70,7 +75,7 @@
     <div style="display:inline-flex;margin-top: 5px;">
       <div class="card plotterGraph" id="scatterArea"></div>
       <div style="margin-right:10px ;">
-        <button class='reset-btn' id="reset-btn1"><img class="reset-img" src="./reset.png"></button>
+        <button title="Reset" class='reset-btn' id="reset-btn1"><img class="reset-img" src="./assets/images/reset.png"></button>
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
@@ -83,7 +88,7 @@
       </div>
       <div class="card plotterGraph" id="scatterArea_explanation"></div>
       <div>
-        <button class='reset-btn' id="reset-btn2"><img class="reset-img" src="./reset.png"></button>
+        <button title="Reset" class='reset-btn' id="reset-btn2"><img class="reset-img" src="./assets/images/reset.png"></button>
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
@@ -102,7 +107,7 @@
           <div id="parallelArea"></div>
         </div>
         <div style="margin-left: 20px;margin-top: 5px;">
-          <button class='reset-btn' id="reset-btn3"><img class="reset-img" src="./reset.png"></button>
+          <button title="Reset" class='reset-btn' id="reset-btn3"><img class="reset-img" src="./assets/images/reset.png"></button>
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
             <div class="legend orange"></div>
@@ -121,6 +126,7 @@
         </div>
 
         <div style="margin-left: 20px;margin-top: 5px;">
+          <button title="Reset" class='reset-btn' id="reset-btn4"><img class="reset-img" src="./assets/images/reset.png"></button>
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
             <div class="legend orange"></div>
@@ -142,6 +148,9 @@
       $("#main-content").toggleClass('main-content_small')
       $("#featuresBox").toggleClass('show')
       $("#mode-select-box").toggleClass('show')
+      $("#cpu").toggleClass('resize-logo')
+      $("#analysis").toggleClass('resize-logo')
+      $("#dTree-btn").toggleClass('show')
 
     });
   </script>
