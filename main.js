@@ -1,11 +1,11 @@
 let selected_features = [];
+let i_data, o_data;
 
-
-d3.csv("lime_outputbreast_cancer_data_updated.csv", function (error, i_data) {
+d3.csv("lime_outputbreast_cancer_data_updated.csv", function (error, i_d) {
     if (error) throw error;
-    d3.csv("breast_cancer_data_updated.csv", function (error, o_data) {
+    d3.csv("breast_cancer_data_updated.csv", function (error, o_d) {
         if (error) throw error;
-
+        i_data = i_d; o_data = o_d;
 
 
         // for syncronized scrolling   
@@ -15,19 +15,19 @@ d3.csv("lime_outputbreast_cancer_data_updated.csv", function (error, i_data) {
 
         var selectBox = document.getElementById('inputFeatures');
         let options = Object.keys(o_data[0]);
-        selectBox.options.add(new Option('Id','id',true,true))
-        selectBox.options.add(new Option('Diagnosis','diagnosis',true,true))
+        selectBox.options.add(new Option('Id', 'id', true, true))
+        selectBox.options.add(new Option('Diagnosis', 'diagnosis', true, true))
 
         for (var i = 0, l = options.length; i < l; i++) {
-            if(options[i] !== 'id' && options[i] !== 'diagnosis'){
+            if (options[i] !== 'id' && options[i] !== 'diagnosis') {
                 var optionName = options[i].charAt(0).toUpperCase() + options[i].slice(1);
                 selectBox.options.add(new Option(optionName, options[i]));
             }
         }
 
-        $(function () {$('select').multipleSelect()})
+        $(function () { $('select').multipleSelect() })
 
-    
+
         selected_features = Object.keys(o_data[0])
         drawGraphs(selected_features, o_data, i_data);
         $("#reset-btn1").click(function () { clear_brushes_SC(global_selected_items) })
@@ -43,15 +43,15 @@ let updateMode = () => {
     console.log(activeBrush)
 }
 
-let callDrawGraphs = ( ) =>{
-    $('#cover-spin').show(0); 
+let callDrawGraphs = () => {
+    $('#cover-spin').show(0);
 
     var select = document.getElementById('inputFeatures');
     var selected = [...select.selectedOptions]
         .map(option => option.value);
     console.log(selected);
 
-    setTimeout(()=> { $('#cover-spin').hide();},1500); //spin loader for 1500ms
+    setTimeout(() => { $('#cover-spin').hide(); }, 1500); //spin loader for 1500ms
 
     drawGraphs(selected, o_data, i_data);
 }
