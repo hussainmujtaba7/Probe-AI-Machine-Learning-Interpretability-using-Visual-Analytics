@@ -178,16 +178,6 @@ function brush_parallel_chart_exp(
   allow_recurse = true
 ) {
   console.log("brush_parallel_chart_exp");
-  function getIntersection(obj) {
-    let keys = Object.keys(obj);
-    let intersection = obj[keys[0]];
-    for (let i = 1; i < keys.length; i++) {
-      intersection = intersection.filter(function (n) {
-        return obj[keys[i]].includes(n);
-      });
-    }
-    return intersection;
-  }
   global_selected_items=selectedItems;
 
   var selectedIds = [];

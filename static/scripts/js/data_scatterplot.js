@@ -83,7 +83,7 @@ function drawScatter(data) {
     .append("circle")
     .attr("class", "dot")
     .attr("r", 4)
-    .attr("opacity", ".4")
+    .attr("opacity", ".5")
     .attr("cx", function (d) {
       return x_sc(d["x"]);
     })
@@ -104,8 +104,13 @@ function drawScatter(data) {
       d3.select(this)
         .transition()
         .duration(200)
-        .attr("opacity", "0.4")
-        .attr("r", 4);
+        .attr("opacity", "0.5")
+        .attr("r",function()
+        { if (getIntersection(global_selected_items).includes(d.id)) {
+          return "4";
+        } else {
+          return "2";
+        }});
     });
 
   focus
@@ -122,16 +127,6 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
 
   // Get the brush selection
   console.log("brush_scatter_plot");
-  function getIntersection(obj) {
-    let keys = Object.keys(obj);
-    let intersection = obj[keys[0]];
-    for (let i = 1; i < keys.length; i++) {
-      intersection = intersection.filter(function (n) {
-        return obj[keys[i]].includes(n);
-      });
-    }
-    return intersection;
-  }
 
   global_selected_items = selectedItems;
   var selectedIds = [];
@@ -169,16 +164,16 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
 
     foreground_sc.attr("r", function (d) {
       if (selectedItems_other.includes(d.id)) {
-        return "5";
+        return "4";
       } else {
         return "2";
       }
     });
-    foreground_sc.attr("class", function (d) {
+    foreground_sc.attr("opacity", function (d) {
       if (selectedItems_other.includes(d.id)) {
-        return "selecteddot";
+        return "0.5";
       } else {
-        return "nonSelecteddot";
+        return "0.1";
       }
     });
   } else {
@@ -193,17 +188,17 @@ function brush_scatter_plot(event, selectedItems, data, allow_recurse = true) {
 
     foreground_sc.attr("r", function (d) {
       if (selectedItems_here.includes(d.id)) {
-        return "5";
+        return "4";
       } else {
         return "2";
       }
     });
 
-    foreground_sc.attr("class", function (d) {
+    foreground_sc.attr("opacity", function (d) {
       if (selectedItems_here.includes(d.id)) {
-        return "selecteddot";
+        return "0.5";
       } else {
-        return "nonSelecteddot";
+        return "0.1";
       }
     });
   }

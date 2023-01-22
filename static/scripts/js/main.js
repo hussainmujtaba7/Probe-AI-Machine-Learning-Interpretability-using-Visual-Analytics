@@ -65,6 +65,17 @@ let callDrawGraphs = () => {
     drawGraphs(selected, o_data, i_data);
 }
 
+function getIntersection(obj) {
+    let keys = Object.keys(obj);
+    let intersection = obj[keys[0]];
+    for (let i = 1; i < keys.length; i++) {
+      intersection = intersection.filter(function (n) {
+        return obj[keys[i]].includes(n);
+      });
+    }
+    return intersection;
+  }
+
 function getSelectedFeatures(data, selectedFeatures) {
     return data.map(function (d) {
         var selectedData = {};
