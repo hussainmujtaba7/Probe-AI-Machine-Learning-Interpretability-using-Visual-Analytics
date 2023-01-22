@@ -40,7 +40,9 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
             $("#reset-btn2").click(function () { clear_brushes_SCE(global_selected_items) })
             $("#reset-btn3").click(function () { if (activeBrush == "coordinate") { clear_brushes_PC(global_selected_items); } })
             $("#reset-btn4").click(function () { if (activeBrush == "coordinate") { clear_brushes_PCE(global_selected_items); } })
-            $("#dTree-btn").click(function () { $('#chartBox').empty(); $('#dtree-box').addClass('show'); test_flask() })
+            $("#dTree-btn").click(function () {
+                if (desision_tree_variable.red.length && desision_tree_variable.green.length) { $('#chartBox').empty(); $('#dtree-box').addClass('show'); test_flask() }
+            })
             $('#cover-spin').hide();
         }, 100);
     });
@@ -52,7 +54,10 @@ let updateMode = () => {
 
     let title = (activeBrush == "coordinate") ? "Co-ordinated Mode" : "Cluster Mode";
     $("#mode-title").text(title);
-
+    if (activeBrush !== "coordinate") {
+        $("#tooltip2").addClass('show'); 
+        $('#dTree-btn').removeClass("enabled").addClass('disbled');
+    } else { $("#tooltip2").removeClass('show'); }
     if (mode1 == mode2) {
         activeBrush = "red"; //graph resets only if its red or green
         clear_brushes_SCE(global_selected_items);

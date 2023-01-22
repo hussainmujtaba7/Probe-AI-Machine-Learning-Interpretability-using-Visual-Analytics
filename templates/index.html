@@ -62,14 +62,14 @@
       </div>
     </div>
     <div>
-      <button id="dTree-btn" title="Draw Decision Tree" class="button-91">🌲🌳🌴</button>
+      <button id="dTree-btn" title="Draw Decision Tree 🌳" class="disabled button-91">Draw Decision Tree</button>
     </div>
 
     <div class="featuresBox" id="featuresBox">
       <span class="fs-label"><b>Features Selection</b></span>
       <select id="inputFeatures" multiple="multiple"></select>
-      <button title="Draw Graphs" id="drawGraphs" class="button-91" onclick="callDrawGraphs()">
-        <span id="pencil">✏️</span>
+      <button title="Draw Graphs ✏️" id="drawGraphs" class="button-91" onclick="callDrawGraphs()">
+        <span id="pencil">Draw Graphs</span>
       </button>
     </div>
     <div id="dsh-txt" onclick="function toggle(){$('#closeBtn').click()};toggle()">
@@ -89,11 +89,11 @@
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
-          <div style="margin-top: 3px;">Malignant</div>
+          <div style="margin-top: 3px;">Benign</div>
         </div>
         <div style="display: flex;">
           <div class="legend blue"></div>
-          <div style="margin-top: 3px;">Benign</div>
+          <div style="margin-top: 3px;">Malignant</div>
         </div>
         <div class="chart-name">
           Data Scatterplot
@@ -106,17 +106,24 @@
         <div style="font-weight: bold; margin-top: 20px;">Legend</div>
         <div style="display: flex;">
           <div class="legend orange"></div>
-          <div style="margin-top: 3px;">Malignant</div>
+          <div style="margin-top: 3px;">Benign</div>
         </div>
         <div style="display: flex;">
           <div class="legend blue"></div>
-          <div style="margin-top: 3px;">Benign</div>
+          <div style="margin-top: 3px;">Malignant</div>
         </div>
         <div class="chart-name">
           Data Scatterplot Explanation
         </div>
       </div>
-      <div id="tooltip"></div>
+      <div>
+        <div id="tooltip"></div>
+
+        <div id="tooltip2">
+          <span style="font-size: 14px;font-weight: bold;color:#D21F3C">Red : </span><span id="redCount"></span> <br>
+          <span style="font-size: 14px;font-weight: bold;color: #3B7A57;">Green : </span><span id="greenCount"></span>
+        </div>
+      </div>
     </div>
 
     <diV>
@@ -130,11 +137,11 @@
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
             <div class="legend-bar orange"></div>
-            <div style="margin-top: 3px;">Malignant</div>
+            <div style="margin-top: 3px;">Benign</div>
           </div>
           <div style="display: flex;">
             <div class="legend-bar blue"></div>
-            <div style="margin-top: 3px;">Benign</div>
+            <div style="margin-top: 3px;">Malignant</div>
           </div>
           <div style="margin-top: 5%;font-size: 12px;width: 50px;">
             Parallel Cordinate
@@ -153,11 +160,11 @@
           <div style="font-weight: bold; margin-top: 20px;">Legend</div>
           <div style="display: flex;">
             <div class="legend-bar orange"></div>
-            <div style="margin-top: 3px;">Malignant</div>
+            <div style="margin-top: 3px;">Benign</div>
           </div>
           <div style="display: flex;">
             <div class="legend-bar blue"></div>
-            <div style="margin-top: 3px;">Benign</div>
+            <div style="margin-top: 3px;">Malignant</div>
           </div>
           <div style="margin-top: 5%;font-size: 10px;width: 50px;">
             Parallel Cordinate Explanation
@@ -186,7 +193,7 @@
       $("#dTree-btn").toggleClass('show')
       $("#dsh-txt").toggleClass('hide')
     });
-    let labels  = ['Malignant','Benign'];
+    let labels  = ['Benign','Malignant'];
   </script>
 </body>
 

@@ -267,7 +267,10 @@ function brush_analytics_red(data) {
   });
 
   desision_tree_variable.red = selectedIds;
-  console.log(desision_tree_variable)
+  console.log(desision_tree_variable.red.length,desision_tree_variable.green.length,desision_tree_variable)
+  $('#redCount').text(desision_tree_variable.red.length)
+  $('#greenCount').text(desision_tree_variable.green.length)
+  if(desision_tree_variable.red.length && desision_tree_variable.green.length){$('#dTree-btn').removeClass('disbled').addClass('enabled')}
 }
 
 function brush_analytics_green(data) {
@@ -312,6 +315,10 @@ function brush_analytics_green(data) {
   });
   desision_tree_variable.green = selectedIds;
   console.log(desision_tree_variable)
+  $('#redCount').text(desision_tree_variable.red.length)
+  $('#greenCount').text(desision_tree_variable.green.length)
+  if(desision_tree_variable.red.length && desision_tree_variable.green.length){
+    $('#dTree-btn').removeClass('disabled').addClass('enabled')}
 }
 
 function clear_brushes_SCE(clear_pc) {
@@ -322,6 +329,8 @@ function clear_brushes_SCE(clear_pc) {
   global_selected_items['spe']=all_data_ids;
   desision_tree_variable.red=[]
   desision_tree_variable.green=[]
+  $('#dTree-btn').removeClass("enabled").addClass('disabled');
+
   console.log(desision_tree_variable)
   brush_analytics_red(derived_data)
   brush_scatter_plot_exp(undefined, global_selected_items, derived_data, true);
