@@ -1,19 +1,887 @@
 {
-    "pred": "1 of 0, 1 of 1",
+    "pred": "232 of 0, 209 of 1",
     "side": "right",
-    "name": "texture_se > 0.03",
+    "name": "area_se > 0.1",
     "type": "numerical",
-    "size": 2.0,
+    "size": 441.0,
     "children": [
         {
-            "name": "0 of 0, 1 of 1",
-            "size": 1.0,
-            "side": "right"
+            "pred": "62 of 0, 15 of 1",
+            "side": "right",
+            "name": "concavity_mean > 0.22",
+            "type": "numerical",
+            "size": 77.0,
+            "children": [
+                {
+                    "pred": "62 of 0, 9 of 1",
+                    "side": "right",
+                    "name": "fractal_dimension_worst > 0.07",
+                    "type": "numerical",
+                    "size": 71.0,
+                    "children": [
+                        {
+                            "pred": "60 of 0, 5 of 1",
+                            "side": "right",
+                            "name": "concavity_worst > 0.76",
+                            "type": "numerical",
+                            "size": 65.0,
+                            "children": [
+                                {
+                                    "name": "0 of 0, 1 of 1",
+                                    "size": 1.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "pred": "60 of 0, 4 of 1",
+                                    "side": "left",
+                                    "name": "texture_mean > 0.38",
+                                    "type": "numerical",
+                                    "size": 64.0,
+                                    "children": [
+                                        {
+                                            "name": "45 of 0, 0 of 1",
+                                            "size": 45.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "15 of 0, 4 of 1",
+                                            "side": "left",
+                                            "name": "symmetry_worst > 0.27",
+                                            "type": "numerical",
+                                            "size": 19.0,
+                                            "children": [
+                                                {
+                                                    "pred": "14 of 0, 1 of 1",
+                                                    "side": "right",
+                                                    "name": "concavity_worst > 0.23",
+                                                    "type": "numerical",
+                                                    "size": 15.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "14 of 0, 0 of 1",
+                                                            "size": 14.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "0 of 0, 1 of 1",
+                                                            "size": 1.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "pred": "1 of 0, 3 of 1",
+                                                    "side": "left",
+                                                    "name": "concave points_mean > 0.38",
+                                                    "type": "numerical",
+                                                    "size": 4.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "0 of 0, 3 of 1",
+                                                            "size": 3.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "1 of 0, 0 of 1",
+                                                            "size": 1.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "pred": "2 of 0, 4 of 1",
+                            "side": "left",
+                            "name": "smoothness_se > 0.12",
+                            "type": "numerical",
+                            "size": 6.0,
+                            "children": [
+                                {
+                                    "name": "0 of 0, 4 of 1",
+                                    "size": 4.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "name": "2 of 0, 0 of 1",
+                                    "size": 2.0,
+                                    "side": "left"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "0 of 0, 6 of 1",
+                    "size": 6.0,
+                    "side": "left"
+                }
+            ]
         },
         {
-            "name": "1 of 0, 0 of 1",
-            "size": 1.0,
-            "side": "left"
+            "pred": "170 of 0, 194 of 1",
+            "side": "left",
+            "name": "concavity_worst > 0.18",
+            "type": "numerical",
+            "size": 364.0,
+            "children": [
+                {
+                    "pred": "37 of 0, 110 of 1",
+                    "side": "right",
+                    "name": "area_se > 0.07",
+                    "type": "numerical",
+                    "size": 147.0,
+                    "children": [
+                        {
+                            "pred": "16 of 0, 10 of 1",
+                            "side": "right",
+                            "name": "texture_mean > 0.36",
+                            "type": "numerical",
+                            "size": 26.0,
+                            "children": [
+                                {
+                                    "pred": "12 of 0, 2 of 1",
+                                    "side": "right",
+                                    "name": "symmetry_worst > 0.18",
+                                    "type": "numerical",
+                                    "size": 14.0,
+                                    "children": [
+                                        {
+                                            "name": "12 of 0, 0 of 1",
+                                            "size": 12.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "name": "0 of 0, 2 of 1",
+                                            "size": 2.0,
+                                            "side": "left"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "pred": "4 of 0, 8 of 1",
+                                    "side": "left",
+                                    "name": "area_se > 0.08",
+                                    "type": "numerical",
+                                    "size": 12.0,
+                                    "children": [
+                                        {
+                                            "name": "0 of 0, 6 of 1",
+                                            "size": 6.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "4 of 0, 2 of 1",
+                                            "side": "left",
+                                            "name": "smoothness_worst > 0.49",
+                                            "type": "numerical",
+                                            "size": 6.0,
+                                            "children": [
+                                                {
+                                                    "name": "4 of 0, 0 of 1",
+                                                    "size": 4.0,
+                                                    "side": "right"
+                                                },
+                                                {
+                                                    "name": "0 of 0, 2 of 1",
+                                                    "size": 2.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "pred": "21 of 0, 100 of 1",
+                            "side": "left",
+                            "name": "area_mean > 0.17",
+                            "type": "numerical",
+                            "size": 121.0,
+                            "children": [
+                                {
+                                    "pred": "17 of 0, 42 of 1",
+                                    "side": "right",
+                                    "name": "texture_se > 0.14",
+                                    "type": "numerical",
+                                    "size": 59.0,
+                                    "children": [
+                                        {
+                                            "pred": "3 of 0, 27 of 1",
+                                            "side": "right",
+                                            "name": "area_se > 0.02",
+                                            "type": "numerical",
+                                            "size": 30.0,
+                                            "children": [
+                                                {
+                                                    "pred": "1 of 0, 27 of 1",
+                                                    "side": "right",
+                                                    "name": "smoothness_mean > 0.26",
+                                                    "type": "numerical",
+                                                    "size": 28.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "0 of 0, 27 of 1",
+                                                            "size": 27.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "1 of 0, 0 of 1",
+                                                            "size": 1.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "2 of 0, 0 of 1",
+                                                    "size": 2.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "pred": "14 of 0, 15 of 1",
+                                            "side": "left",
+                                            "name": "symmetry_worst > 0.24",
+                                            "type": "numerical",
+                                            "size": 29.0,
+                                            "children": [
+                                                {
+                                                    "pred": "13 of 0, 6 of 1",
+                                                    "side": "right",
+                                                    "name": "smoothness_worst > 0.53",
+                                                    "type": "numerical",
+                                                    "size": 19.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "7 of 0, 0 of 1",
+                                                            "size": 7.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "pred": "6 of 0, 6 of 1",
+                                                            "side": "left",
+                                                            "name": "smoothness_mean > 0.42",
+                                                            "type": "numerical",
+                                                            "size": 12.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 5 of 1",
+                                                                    "size": 5.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "pred": "6 of 0, 1 of 1",
+                                                                    "side": "left",
+                                                                    "name": "texture_se > 0.02",
+                                                                    "type": "numerical",
+                                                                    "size": 7.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "6 of 0, 0 of 1",
+                                                                            "size": 6.0,
+                                                                            "side": "right"
+                                                                        },
+                                                                        {
+                                                                            "name": "0 of 0, 1 of 1",
+                                                                            "size": 1.0,
+                                                                            "side": "left"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "pred": "1 of 0, 9 of 1",
+                                                    "side": "left",
+                                                    "name": "radius_mean > 0.34",
+                                                    "type": "numerical",
+                                                    "size": 10.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "0 of 0, 8 of 1",
+                                                            "size": 8.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "pred": "1 of 0, 1 of 1",
+                                                            "side": "left",
+                                                            "name": "fractal_dimension_worst > 0.27",
+                                                            "type": "numerical",
+                                                            "size": 2.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "1 of 0, 0 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "name": "0 of 0, 1 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "pred": "4 of 0, 58 of 1",
+                                    "side": "left",
+                                    "name": "smoothness_worst > 0.94",
+                                    "type": "numerical",
+                                    "size": 62.0,
+                                    "children": [
+                                        {
+                                            "name": "1 of 0, 0 of 1",
+                                            "size": 1.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "3 of 0, 58 of 1",
+                                            "side": "left",
+                                            "name": "concavity_mean > 0.1",
+                                            "type": "numerical",
+                                            "size": 61.0,
+                                            "children": [
+                                                {
+                                                    "pred": "2 of 0, 58 of 1",
+                                                    "side": "right",
+                                                    "name": "smoothness_mean > 0.57",
+                                                    "type": "numerical",
+                                                    "size": 60.0,
+                                                    "children": [
+                                                        {
+                                                            "pred": "2 of 0, 6 of 1",
+                                                            "side": "right",
+                                                            "name": "fractal_dimension_worst > 0.31",
+                                                            "type": "numerical",
+                                                            "size": 8.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 6 of 1",
+                                                                    "size": 6.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "name": "2 of 0, 0 of 1",
+                                                                    "size": 2.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "0 of 0, 52 of 1",
+                                                            "size": 52.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "1 of 0, 0 of 1",
+                                                    "size": 1.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "pred": "133 of 0, 84 of 1",
+                    "side": "left",
+                    "name": "fractal_dimension_worst > 0.16",
+                    "type": "numerical",
+                    "size": 217.0,
+                    "children": [
+                        {
+                            "pred": "57 of 0, 11 of 1",
+                            "side": "right",
+                            "name": "smoothness_se > 0.25",
+                            "type": "numerical",
+                            "size": 68.0,
+                            "children": [
+                                {
+                                    "pred": "17 of 0, 9 of 1",
+                                    "side": "right",
+                                    "name": "area_mean > 0.06",
+                                    "type": "numerical",
+                                    "size": 26.0,
+                                    "children": [
+                                        {
+                                            "pred": "6 of 0, 9 of 1",
+                                            "side": "right",
+                                            "name": "texture_mean > 0.37",
+                                            "type": "numerical",
+                                            "size": 15.0,
+                                            "children": [
+                                                {
+                                                    "name": "4 of 0, 0 of 1",
+                                                    "size": 4.0,
+                                                    "side": "right"
+                                                },
+                                                {
+                                                    "pred": "2 of 0, 9 of 1",
+                                                    "side": "left",
+                                                    "name": "texture_mean > 0.19",
+                                                    "type": "numerical",
+                                                    "size": 11.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "0 of 0, 9 of 1",
+                                                            "size": 9.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "2 of 0, 0 of 1",
+                                                            "size": 2.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "11 of 0, 0 of 1",
+                                            "size": 11.0,
+                                            "side": "left"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "pred": "40 of 0, 2 of 1",
+                                    "side": "left",
+                                    "name": "concavity_worst > 0.06",
+                                    "type": "numerical",
+                                    "size": 42.0,
+                                    "children": [
+                                        {
+                                            "name": "35 of 0, 0 of 1",
+                                            "size": 35.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "5 of 0, 2 of 1",
+                                            "side": "left",
+                                            "name": "symmetry_worst > 0.2",
+                                            "type": "numerical",
+                                            "size": 7.0,
+                                            "children": [
+                                                {
+                                                    "name": "5 of 0, 0 of 1",
+                                                    "size": 5.0,
+                                                    "side": "right"
+                                                },
+                                                {
+                                                    "name": "0 of 0, 2 of 1",
+                                                    "size": 2.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "pred": "76 of 0, 73 of 1",
+                            "side": "left",
+                            "name": "texture_mean > 0.56",
+                            "type": "numerical",
+                            "size": 149.0,
+                            "children": [
+                                {
+                                    "name": "11 of 0, 0 of 1",
+                                    "size": 11.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "pred": "65 of 0, 73 of 1",
+                                    "side": "left",
+                                    "name": "texture_mean > 0.25",
+                                    "type": "numerical",
+                                    "size": 138.0,
+                                    "children": [
+                                        {
+                                            "pred": "25 of 0, 51 of 1",
+                                            "side": "right",
+                                            "name": "area_se > 0.03",
+                                            "type": "numerical",
+                                            "size": 76.0,
+                                            "children": [
+                                                {
+                                                    "pred": "14 of 0, 8 of 1",
+                                                    "side": "right",
+                                                    "name": "symmetry_se > 0.17",
+                                                    "type": "numerical",
+                                                    "size": 22.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "12 of 0, 0 of 1",
+                                                            "size": 12.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "pred": "2 of 0, 8 of 1",
+                                                            "side": "left",
+                                                            "name": "symmetry_worst > 0.16",
+                                                            "type": "numerical",
+                                                            "size": 10.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 7 of 1",
+                                                                    "size": 7.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "pred": "2 of 0, 1 of 1",
+                                                                    "side": "left",
+                                                                    "name": "smoothness_mean > 0.34",
+                                                                    "type": "numerical",
+                                                                    "size": 3.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "0 of 0, 1 of 1",
+                                                                            "size": 1.0,
+                                                                            "side": "right"
+                                                                        },
+                                                                        {
+                                                                            "name": "2 of 0, 0 of 1",
+                                                                            "size": 2.0,
+                                                                            "side": "left"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "pred": "11 of 0, 43 of 1",
+                                                    "side": "left",
+                                                    "name": "texture_mean > 0.4",
+                                                    "type": "numerical",
+                                                    "size": 54.0,
+                                                    "children": [
+                                                        {
+                                                            "pred": "5 of 0, 2 of 1",
+                                                            "side": "right",
+                                                            "name": "fractal_dimension_se > 0.06",
+                                                            "type": "numerical",
+                                                            "size": 7.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 2 of 1",
+                                                                    "size": 2.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "name": "5 of 0, 0 of 1",
+                                                                    "size": 5.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "pred": "6 of 0, 41 of 1",
+                                                            "side": "left",
+                                                            "name": "texture_se > 0.08",
+                                                            "type": "numerical",
+                                                            "size": 47.0,
+                                                            "children": [
+                                                                {
+                                                                    "pred": "4 of 0, 40 of 1",
+                                                                    "side": "right",
+                                                                    "name": "symmetry_mean > 0.2",
+                                                                    "type": "numerical",
+                                                                    "size": 44.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "pred": "2 of 0, 38 of 1",
+                                                                            "side": "right",
+                                                                            "name": "concavity_worst > 0.01",
+                                                                            "type": "numerical",
+                                                                            "size": 40.0,
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "0 of 0, 36 of 1",
+                                                                                    "size": 36.0,
+                                                                                    "side": "right"
+                                                                                },
+                                                                                {
+                                                                                    "pred": "2 of 0, 2 of 1",
+                                                                                    "side": "left",
+                                                                                    "name": "concave points_mean > 0.01",
+                                                                                    "type": "numerical",
+                                                                                    "size": 4.0,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "2 of 0, 0 of 1",
+                                                                                            "size": 2.0,
+                                                                                            "side": "right"
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "0 of 0, 2 of 1",
+                                                                                            "size": 2.0,
+                                                                                            "side": "left"
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "pred": "2 of 0, 2 of 1",
+                                                                            "side": "left",
+                                                                            "name": "texture_mean > 0.28",
+                                                                            "type": "numerical",
+                                                                            "size": 4.0,
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "2 of 0, 0 of 1",
+                                                                                    "size": 2.0,
+                                                                                    "side": "right"
+                                                                                },
+                                                                                {
+                                                                                    "name": "0 of 0, 2 of 1",
+                                                                                    "size": 2.0,
+                                                                                    "side": "left"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "pred": "2 of 0, 1 of 1",
+                                                                    "side": "left",
+                                                                    "name": "fractal_dimension_worst > 0.12",
+                                                                    "type": "numerical",
+                                                                    "size": 3.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "2 of 0, 0 of 1",
+                                                                            "size": 2.0,
+                                                                            "side": "right"
+                                                                        },
+                                                                        {
+                                                                            "name": "0 of 0, 1 of 1",
+                                                                            "size": 1.0,
+                                                                            "side": "left"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "pred": "40 of 0, 22 of 1",
+                                            "side": "left",
+                                            "name": "fractal_dimension_mean > 0.08",
+                                            "type": "numerical",
+                                            "size": 62.0,
+                                            "children": [
+                                                {
+                                                    "pred": "40 of 0, 18 of 1",
+                                                    "side": "right",
+                                                    "name": "texture_se > 0.15",
+                                                    "type": "numerical",
+                                                    "size": 58.0,
+                                                    "children": [
+                                                        {
+                                                            "pred": "20 of 0, 3 of 1",
+                                                            "side": "right",
+                                                            "name": "fractal_dimension_se > 0.15",
+                                                            "type": "numerical",
+                                                            "size": 23.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 1 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "pred": "20 of 0, 2 of 1",
+                                                                    "side": "left",
+                                                                    "name": "fractal_dimension_worst > 0.15",
+                                                                    "type": "numerical",
+                                                                    "size": 22.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "name": "0 of 0, 1 of 1",
+                                                                            "size": 1.0,
+                                                                            "side": "right"
+                                                                        },
+                                                                        {
+                                                                            "pred": "20 of 0, 1 of 1",
+                                                                            "side": "left",
+                                                                            "name": "concavity_worst > 0.16",
+                                                                            "type": "numerical",
+                                                                            "size": 21.0,
+                                                                            "children": [
+                                                                                {
+                                                                                    "name": "0 of 0, 1 of 1",
+                                                                                    "size": 1.0,
+                                                                                    "side": "right"
+                                                                                },
+                                                                                {
+                                                                                    "name": "20 of 0, 0 of 1",
+                                                                                    "size": 20.0,
+                                                                                    "side": "left"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "pred": "20 of 0, 15 of 1",
+                                                            "side": "left",
+                                                            "name": "smoothness_se > 0.09",
+                                                            "type": "numerical",
+                                                            "size": 35.0,
+                                                            "children": [
+                                                                {
+                                                                    "pred": "13 of 0, 15 of 1",
+                                                                    "side": "right",
+                                                                    "name": "concavity_se > 0.03",
+                                                                    "type": "numerical",
+                                                                    "size": 28.0,
+                                                                    "children": [
+                                                                        {
+                                                                            "pred": "11 of 0, 5 of 1",
+                                                                            "side": "right",
+                                                                            "name": "texture_mean > 0.13",
+                                                                            "type": "numerical",
+                                                                            "size": 16.0,
+                                                                            "children": [
+                                                                                {
+                                                                                    "pred": "5 of 0, 5 of 1",
+                                                                                    "side": "right",
+                                                                                    "name": "symmetry_mean > 0.35",
+                                                                                    "type": "numerical",
+                                                                                    "size": 10.0,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "0 of 0, 3 of 1",
+                                                                                            "size": 3.0,
+                                                                                            "side": "right"
+                                                                                        },
+                                                                                        {
+                                                                                            "pred": "5 of 0, 2 of 1",
+                                                                                            "side": "left",
+                                                                                            "name": "smoothness_worst > 0.35",
+                                                                                            "type": "numerical",
+                                                                                            "size": 7.0,
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "pred": "1 of 0, 2 of 1",
+                                                                                                    "side": "right",
+                                                                                                    "name": "concavity_worst > 0.14",
+                                                                                                    "type": "numerical",
+                                                                                                    "size": 3.0,
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "name": "1 of 0, 0 of 1",
+                                                                                                            "size": 1.0,
+                                                                                                            "side": "right"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "name": "0 of 0, 2 of 1",
+                                                                                                            "size": 2.0,
+                                                                                                            "side": "left"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "name": "4 of 0, 0 of 1",
+                                                                                                    "size": 4.0,
+                                                                                                    "side": "left"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "6 of 0, 0 of 1",
+                                                                                    "size": 6.0,
+                                                                                    "side": "left"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "pred": "2 of 0, 10 of 1",
+                                                                            "side": "left",
+                                                                            "name": "symmetry_worst > 0.23",
+                                                                            "type": "numerical",
+                                                                            "size": 12.0,
+                                                                            "children": [
+                                                                                {
+                                                                                    "pred": "2 of 0, 1 of 1",
+                                                                                    "side": "right",
+                                                                                    "name": "smoothness_mean > 0.21",
+                                                                                    "type": "numerical",
+                                                                                    "size": 3.0,
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "name": "2 of 0, 0 of 1",
+                                                                                            "size": 2.0,
+                                                                                            "side": "right"
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "0 of 0, 1 of 1",
+                                                                                            "size": 1.0,
+                                                                                            "side": "left"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "name": "0 of 0, 9 of 1",
+                                                                                    "size": 9.0,
+                                                                                    "side": "left"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "name": "7 of 0, 0 of 1",
+                                                                    "size": 7.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "0 of 0, 4 of 1",
+                                                    "size": 4.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

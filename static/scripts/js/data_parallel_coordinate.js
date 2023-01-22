@@ -55,13 +55,15 @@ function drawParallel(data) {
       d3.select(this)
       .transition()
       .duration(200)
-      .style("stroke-width", "4px");
+      .attr("opacity", "1")
+      .style("stroke-width", "3px");
   })
   .on("mouseout", function(d) {
       d3.select(this)
       .transition()
       .duration(200)
-      .style("stroke-width", "2px");
+      .attr("opacity", ".7")
+      .style("stroke-width", "1px");
   });
 
   // Add a group element for each dimension.
@@ -179,16 +181,6 @@ function brush_parallel_chart(
   allow_recurse = true
 ) {
   console.log("brush_parallel_chart");
-  function getIntersection(obj) {
-    let keys = Object.keys(obj);
-    let intersection = obj[keys[0]];
-    for (let i = 1; i < keys.length; i++) {
-      intersection = intersection.filter(function (n) {
-        return obj[keys[i]].includes(n);
-      });
-    }
-    return intersection;
-  }
   global_selected_items = selectedItems;
   var selectedIds = [];
   var actives = [];
