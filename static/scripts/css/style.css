@@ -170,7 +170,14 @@ svg {
     padding: 20px;
     overflow: scroll;
 }
-
+.dtree-legends{
+    z-index: 3;
+    top: 100%;
+    margin-left: 10%;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+}
 #pencil {
     font-size: 20px;
     display: block;
@@ -382,9 +389,9 @@ body {
 
 .legends {
     position: fixed;
-    top: 1px;
+    top: 160px;
     z-index: -1;
-    left: 5px;
+    left: 70px;
 }
 
 .main {
@@ -403,20 +410,25 @@ body {
 
 /* Scroll Bar */
 
-body::-webkit-scrollbar,
-.card::-webkit-scrollbar {
-    width: 16px;
+body::-webkit-scrollbar-track,
+.card::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    border-radius: 6px;
 }
 
-body::-webkit-scrollbar-track,
-.card::-webkit-scrollbar-track {
-    background-color: #e4e4e4;
-    border-radius: 100px;
+body::-webkit-scrollbar,
+.card::-webkit-scrollbar
+{
+	width: 6px;
+    height: 6px;
+	background-color: #F5F5F5;
 }
 
 body::-webkit-scrollbar-thumb,
-.card::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
-    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-    border-radius: 100px;
+.card::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+    border-radius: 6px;
 }
