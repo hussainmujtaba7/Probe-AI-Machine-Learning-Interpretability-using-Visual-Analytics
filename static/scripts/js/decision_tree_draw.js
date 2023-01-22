@@ -117,7 +117,7 @@ function draw_decision_tree(data) {
 
                 root.children.forEach(collapse);
                 update(root, l.length);
-                // createLabels(l);
+                createLabels(l);
             });
 
             d3.select(self.frameElement).style("height", "480px");
@@ -662,56 +662,56 @@ function draw_decision_tree(data) {
 
             }
 
-            // function createLabels(labels) {
+            function createLabels(labels) {
 
 
-            //     var Size = 400
+                var Size = 100;
 
 
-            //     var svg1 = d3.select("#chartBox")
-            //         .append("svg")
-            //         .attr("width", Size)
-            //         .attr("height", Size)
-            //         .attr("class", "legends");
+                var svg1 = d3.select("#chartBox")
+                    .append("svg")
+                    .attr("width", Size)
+                    .attr("height", Size)
+                    .attr("class", "legends");
 
-            //     console.log(labels.length)
-            //     console.log(default_colors.slice(0, labels.length))
-            //     default_colors = default_colors.slice(0, labels.length)
-            //     if (default_colors.length == 2) default_colors.push('')
-            //     if (default_colors.length == 0) {
-            //         var c_l = default_colors
-            //     } else {
-            //         var c_l = default_colors
-            //     }
+                console.log(labels.length)
+                console.log(default_colors.slice(0, labels.length))
+                default_colors = default_colors.slice(0, labels.length)
+                if (default_colors.length == 2) default_colors.push('')
+                if (default_colors.length == 0) {
+                    var c_l = default_colors
+                } else {
+                    var c_l = default_colors
+                }
 
-            //     for (i = 0; i < c_l.length; i++) {
+                for (i = 0; i < c_l.length; i++) {
 
-            //         console.log(labels[i], "", c_l[i])
+                    console.log(labels[i], "", c_l[i])
 
-            //         var legendG = svg1
-            //             .append("g")
-            //             .attr("transform", function (d) {
-            //                 return "translate(" + 0 + "," + (30 * i + Size / 33 + Size / 50) + ")"; // place each legend on the right and bump each one down 15 pixels
-            //             })
-            //             .attr("class", "legend");
+                    var legendG = svg1
+                        .append("g")
+                        .attr("transform", function (d) {
+                            return "translate(" + 0 + "," + (30 * i + Size / 33 + Size / 50) + ")"; // place each legend on the right and bump each one down 15 pixels
+                        })
+                        .attr("class", "legends");
 
-            //         legendG.append("rect") // make a matching color rect
-            //             .attr("width", 15)
-            //             .attr("height", 15)
-            //             .attr("fill", c_l[i])
-            //             .style('visibility', function () {
-            //                 return labels[i] ? "visible" : "hidden"
-            //             })
+                    legendG.append("rect") // make a matching color rect
+                        .attr("width", 15)
+                        .attr("height", 15)
+                        .attr("fill", c_l[i])
+                        .style('visibility', function () {
+                            return labels[i] ? "visible" : "hidden"
+                        })
 
-            //         legendG.append("text") // add the text
-            //             .text(labels[i])
-            //             .style("font-size", 30)
-            //             .attr("y", 12)
-            //             .attr("x", 21)
+                    legendG.append("text") // add the text
+                        .text(labels[i])
+                        .style("font-size", 30)
+                        .attr("y", 12)
+                        .attr("x", 21)
 
-            //     }
+                }
 
-            // }
+            }
         });
     }
 
