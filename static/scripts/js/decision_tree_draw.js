@@ -117,7 +117,7 @@ function draw_decision_tree(data) {
 
                 root.children.forEach(collapse);
                 update(root, l.length);
-                createLabels(l);
+                // createLabels(l);
             });
 
             d3.select(self.frameElement).style("height", "480px");
