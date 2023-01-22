@@ -102,7 +102,12 @@ brushScatter_exp = d3
       d3.select(this)
         .transition()
         .duration(200)
-        .attr("opacity", "0.5")
+        .attr("opacity",function()
+        { if (getIntersection(global_selected_items).includes(d.id)) {
+          return "0.5";
+        } else {
+          return "0.1";
+        }})
         .attr("r",function()
         { if (getIntersection(global_selected_items).includes(d.id)) {
           return "4";
@@ -110,6 +115,7 @@ brushScatter_exp = d3
           return "2";
         }});
     });
+
 
     focus_exp
     .append("g")
