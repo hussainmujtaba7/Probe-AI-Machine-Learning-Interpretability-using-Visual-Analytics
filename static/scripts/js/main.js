@@ -13,10 +13,15 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
             $('#top').scrollLeft($(this).scrollLeft());
         });
 
+        // for featureselect dropdown
+
         var selectBox = document.getElementById('inputFeatures');
         let options = Object.keys(o_data[0]);
         selectBox.options.add(new Option('Id', 'id', true, true))
         selectBox.options.add(new Option('Diagnosis', 'diagnosis', true, true))
+        document.querySelectorAll("#inputFeatures option").forEach(opt => {
+            if (opt.value == "id" ||opt.value == "diagnosis") {opt.disabled = true;}
+        });
 
         for (var i = 0, l = options.length; i < l; i++) {
             if (options[i] !== 'id' && options[i] !== 'diagnosis') {
@@ -34,18 +39,18 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
         $("#reset-btn2").click(function () { clear_brushes_SCE(global_selected_items) })
         $("#reset-btn3").click(function () { clear_brushes_PC(global_selected_items) })
         $("#reset-btn4").click(function () { clear_brushes_PCE(global_selected_items) })
-        $("#dTree-btn").click(function () { $('#chartBox').empty();$('#dtree-box').addClass('show'); test_flask() })
+        $("#dTree-btn").click(function () { $('#chartBox').empty(); $('#dtree-box').addClass('show'); test_flask() })
     });
 });
 let updateMode = () => {
-    let mode1 = (activeBrush === 'green' || activeBrush === 'red') ;
+    let mode1 = (activeBrush === 'green' || activeBrush === 'red');
     activeBrush = $('input[name="mode"]:checked').val();
-    let mode2 = (activeBrush ==  "coordinate");
+    let mode2 = (activeBrush == "coordinate");
 
     let title = (activeBrush == "coordinate") ? "Co-ordinated Mode" : "Cluster Mode";
     $("#mode-title").text(title);
 
-    if(mode1 == mode2 ){ 
+    if (mode1 == mode2) {
         activeBrush = "red"; //graph resets only if its red or green
         $("#reset-btn2").click(); $("#reset-btn1").click(); $("#reset-btn3").click(); $("#reset-btn4").click();
         activeBrush = $('input[name="mode"]:checked').val(); //adding back the original value
@@ -69,12 +74,12 @@ function getIntersection(obj) {
     let keys = Object.keys(obj);
     let intersection = obj[keys[0]];
     for (let i = 1; i < keys.length; i++) {
-      intersection = intersection.filter(function (n) {
-        return obj[keys[i]].includes(n);
-      });
+        intersection = intersection.filter(function (n) {
+            return obj[keys[i]].includes(n);
+        });
     }
     return intersection;
-  }
+}
 
 function getSelectedFeatures(data, selectedFeatures) {
     return data.map(function (d) {
