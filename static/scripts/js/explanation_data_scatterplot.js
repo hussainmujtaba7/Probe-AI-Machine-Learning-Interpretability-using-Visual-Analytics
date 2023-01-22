@@ -241,12 +241,15 @@ function brush_analytics_red(data) {
   console.log(selectedIds);
 
   foreground_sc_exp.style("fill", function (d) {
-    if (selectedIds.includes(d.id)) {
+    if(desision_tree_variable.green.includes(d.id) && selectedIds.includes(d.id)){
+      return "grey";
+    }else if (desision_tree_variable.green.includes(d.id)) {
+      return "green";
+    } else if(selectedIds.includes(d.id)){
       return "red";
-    } else {
-      return color(d["diagnosis"]);
-    }
+    }else { return color(d["diagnosis"]);}
   });
+
   desision_tree_variable.red=selectedIds;
   console.log(desision_tree_variable)
 }
@@ -281,12 +284,15 @@ function brush_analytics_green(data) {
   }
   console.log(selectedIds);
 
+
   foreground_sc_exp.style("fill", function (d) {
-    if (selectedIds.includes(d.id)) {
+    if(desision_tree_variable.red.includes(d.id) && selectedIds.includes(d.id)){
+      return "grey";
+    }else if (desision_tree_variable.red.includes(d.id)) {
+      return "red";
+    } else if(selectedIds.includes(d.id)){
       return "green";
-    } else {
-      return color(d["diagnosis"]);
-    }
+    }else { return color(d["diagnosis"]);}
   });
   desision_tree_variable.green=selectedIds;
   console.log(desision_tree_variable)
@@ -298,6 +304,10 @@ function clear_brushes_SCE(clear_pc) {
   focus_exp
   .selectAll(".brushScatterExp").call(brushScatter_exp.move, null);
   global_selected_items['spe']=all_data_ids;
+  desision_tree_variable.red=[]
+  desision_tree_variable.green=[]
+  console.log(desision_tree_variable)
+  brush_analytics_red(derived_data)
   brush_scatter_plot_exp(undefined, global_selected_items, derived_data, true);
   
 }
