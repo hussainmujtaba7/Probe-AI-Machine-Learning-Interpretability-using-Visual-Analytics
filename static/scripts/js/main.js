@@ -56,7 +56,7 @@ let updateMode = () => {
     $("#mode-title").text(title);
     if (activeBrush !== "coordinate") {
         $("#tooltip2").addClass('show'); 
-        $('#dTree-btn').removeClass("enabled").addClass('disbled');
+        $('#dTree-btn').removeClass("enabled").addClass('disabled');
     } else { $("#tooltip2").removeClass('show'); }
     if (mode1 == mode2) {
         activeBrush = "red"; //graph resets only if its red or green

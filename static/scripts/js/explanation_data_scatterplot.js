@@ -270,7 +270,7 @@ function brush_analytics_red(data) {
   console.log(desision_tree_variable.red.length,desision_tree_variable.green.length,desision_tree_variable)
   $('#redCount').text(desision_tree_variable.red.length)
   $('#greenCount').text(desision_tree_variable.green.length)
-  if(desision_tree_variable.red.length && desision_tree_variable.green.length){$('#dTree-btn').removeClass('disbled').addClass('enabled')}
+  if(desision_tree_variable.red.length && desision_tree_variable.green.length){$('#dTree-btn').removeClass('disabled').addClass('enabled')}else{$('#dTree-btn').removeClass('enabled').addClass('disabled')}
 }
 
 function brush_analytics_green(data) {
@@ -319,6 +319,7 @@ function brush_analytics_green(data) {
   $('#greenCount').text(desision_tree_variable.green.length)
   if(desision_tree_variable.red.length && desision_tree_variable.green.length){
     $('#dTree-btn').removeClass('disabled').addClass('enabled')}
+    else{$('#dTree-btn').removeClass('enabled').addClass('disabled')}
 }
 
 function clear_brushes_SCE(clear_pc) {
