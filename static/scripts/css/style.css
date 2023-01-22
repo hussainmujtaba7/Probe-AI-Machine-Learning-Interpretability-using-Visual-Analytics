@@ -204,7 +204,19 @@ svg {
 .ms-parent {
     width: 230px !important;
 }
-
+#dsh-txt{
+    transform: rotate(-90deg);
+    font-size: 47px;
+    letter-spacing: 0.3em;
+    font-family: fantasy;
+    font-style: italic;
+    width: 70%;
+    top: 66%;
+    position: absolute;
+    color: cornflowerblue; 
+    display: block;
+    cursor: pointer;
+}
 .sidebar {
     width: 10%;
     transition: 1s ease;

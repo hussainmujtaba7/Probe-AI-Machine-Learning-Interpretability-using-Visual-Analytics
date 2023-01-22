@@ -72,6 +72,9 @@
         <span id="pencil">✏️</span>
       </button>
     </div>
+    <div id="dsh-txt" onclick="function toggle(){$('#closeBtn').click()};toggle()">
+      DASHBOARD
+    </div>
 
   </div>
 
@@ -181,6 +184,7 @@
       $("#cpu").toggleClass('resize-logo')
       $("#analysis").toggleClass('resize-logo')
       $("#dTree-btn").toggleClass('show')
+      $("#dsh-txt").toggleClass('hide')
     });
     let labels  = ['Malignant','Benign'];
   </script>
