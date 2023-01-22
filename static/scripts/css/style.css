@@ -66,13 +66,11 @@ svg {
 
 #top {
     overflow: hidden;
-    width: 75%;
-    /* margin-top: 2%; */
+    width: 87%;
 }
 
 #bottom {
-    /* margin-top: 2%; */
-    width: 75%;
+    width: 87%;
     overflow: auto;
 }
 
@@ -101,7 +99,7 @@ svg {
     z-index: 3;
     background: #E6EDF0;
     border-radius: 5%;
-    top: 18%;
+    top: 134px;
     padding: 0px 5px;
 }
 
@@ -157,12 +155,20 @@ svg {
 .dtree-container {
     padding-top: 10px;
     display: none;
+    width: 100%;
 }
 
 #dTree-btn {
     display: none;
     margin-top: 7%;
     background-color: floralwhite;
+}
+
+.dtree-box {
+    height: 600px;
+    width: 100%;
+    padding: 20px;
+    overflow: scroll;
 }
 
 #pencil {
@@ -273,9 +279,10 @@ body {
     cursor: pointer;
 }
 
-#mode-title {
+#mode-title, .dtree-container span{
     font-style: italic;
     font-size: 20px;
+    font-weight: bold;
 }
 
 
@@ -351,11 +358,6 @@ body {
     background-color: rgb(31, 119, 180);
 }
 
-.dtree-box {
-    height: 600px;
-    width: 100%;
-    padding: 10px;
-}
 
 /* Desicion Tree CSS */
 
