@@ -35,10 +35,10 @@ d3.csv("/static/data/lime_outputbreast_cancer_data_updated.csv", function (error
 
         selected_features = Object.keys(o_data[0])
         drawGraphs(selected_features, o_data, i_data);
-        $("#reset-btn1").click(function () { clear_brushes_SC(global_selected_items) })
+        $("#reset-btn1").click(function () { if(activeBrush == "coordinate"){clear_brushes_SC(global_selected_items);}})
         $("#reset-btn2").click(function () { clear_brushes_SCE(global_selected_items) })
-        $("#reset-btn3").click(function () { clear_brushes_PC(global_selected_items) })
-        $("#reset-btn4").click(function () { clear_brushes_PCE(global_selected_items) })
+        $("#reset-btn3").click(function () { if(activeBrush == "coordinate"){clear_brushes_PC(global_selected_items); }})
+        $("#reset-btn4").click(function () { if(activeBrush == "coordinate"){clear_brushes_PCE(global_selected_items);}})
         $("#dTree-btn").click(function () { $('#chartBox').empty(); $('#dtree-box').addClass('show'); test_flask() })
     });
 });
@@ -52,7 +52,12 @@ let updateMode = () => {
 
     if (mode1 == mode2) {
         activeBrush = "red"; //graph resets only if its red or green
-        $("#reset-btn2").click(); $("#reset-btn1").click(); $("#reset-btn3").click(); $("#reset-btn4").click();
+        clear_brushes_SCE(global_selected_items);
+        clear_brushes_SC(global_selected_items);
+        clear_brushes_PC(global_selected_items);
+        clear_brushes_PCE(global_selected_items);
+
+        // $("#reset-btn2").click(); $("#reset-btn1").click(); $("#reset-btn3").click(); $("#reset-btn4").click();
         activeBrush = $('input[name="mode"]:checked').val(); //adding back the original value
     }
 }
