@@ -1,19 +1,397 @@
 {
-    "pred": "1 of 0, 1 of 1",
+    "pred": "105 of 0, 71 of 1",
     "side": "right",
-    "name": "texture_se > 0.03",
+    "name": "area_mean > 0.33",
     "type": "numerical",
-    "size": 2.0,
+    "size": 176.0,
     "children": [
         {
-            "name": "0 of 0, 1 of 1",
-            "size": 1.0,
-            "side": "right"
+            "pred": "5 of 0, 29 of 1",
+            "side": "right",
+            "name": "texture_mean > 0.31",
+            "type": "numerical",
+            "size": 34.0,
+            "children": [
+                {
+                    "pred": "2 of 0, 28 of 1",
+                    "side": "right",
+                    "name": "smoothness_worst > 0.71",
+                    "type": "numerical",
+                    "size": 30.0,
+                    "children": [
+                        {
+                            "name": "1 of 0, 0 of 1",
+                            "size": 1.0,
+                            "side": "right"
+                        },
+                        {
+                            "pred": "1 of 0, 28 of 1",
+                            "side": "left",
+                            "name": "smoothness_mean > 0.28",
+                            "type": "numerical",
+                            "size": 29.0,
+                            "children": [
+                                {
+                                    "name": "0 of 0, 28 of 1",
+                                    "size": 28.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "name": "1 of 0, 0 of 1",
+                                    "size": 1.0,
+                                    "side": "left"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "pred": "3 of 0, 1 of 1",
+                    "side": "left",
+                    "name": "area_se > 0.07",
+                    "type": "numerical",
+                    "size": 4.0,
+                    "children": [
+                        {
+                            "name": "3 of 0, 0 of 1",
+                            "size": 3.0,
+                            "side": "right"
+                        },
+                        {
+                            "name": "0 of 0, 1 of 1",
+                            "size": 1.0,
+                            "side": "left"
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "name": "1 of 0, 0 of 1",
-            "size": 1.0,
-            "side": "left"
+            "pred": "100 of 0, 42 of 1",
+            "side": "left",
+            "name": "area_se > 0.03",
+            "type": "numerical",
+            "size": 142.0,
+            "children": [
+                {
+                    "pred": "66 of 0, 9 of 1",
+                    "side": "right",
+                    "name": "concavity_se > 0.27",
+                    "type": "numerical",
+                    "size": 75.0,
+                    "children": [
+                        {
+                            "pred": "1 of 0, 3 of 1",
+                            "side": "right",
+                            "name": "symmetry_worst > 0.52",
+                            "type": "numerical",
+                            "size": 4.0,
+                            "children": [
+                                {
+                                    "name": "1 of 0, 0 of 1",
+                                    "size": 1.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "name": "0 of 0, 3 of 1",
+                                    "size": 3.0,
+                                    "side": "left"
+                                }
+                            ]
+                        },
+                        {
+                            "pred": "65 of 0, 6 of 1",
+                            "side": "left",
+                            "name": "area_se > 0.11",
+                            "type": "numerical",
+                            "size": 71.0,
+                            "children": [
+                                {
+                                    "pred": "1 of 0, 2 of 1",
+                                    "side": "right",
+                                    "name": "smoothness_worst > 0.54",
+                                    "type": "numerical",
+                                    "size": 3.0,
+                                    "children": [
+                                        {
+                                            "name": "1 of 0, 0 of 1",
+                                            "size": 1.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "name": "0 of 0, 2 of 1",
+                                            "size": 2.0,
+                                            "side": "left"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "pred": "64 of 0, 4 of 1",
+                                    "side": "left",
+                                    "name": "texture_mean > 0.16",
+                                    "type": "numerical",
+                                    "size": 68.0,
+                                    "children": [
+                                        {
+                                            "pred": "61 of 0, 2 of 1",
+                                            "side": "right",
+                                            "name": "symmetry_se > 0.05",
+                                            "type": "numerical",
+                                            "size": 63.0,
+                                            "children": [
+                                                {
+                                                    "pred": "60 of 0, 1 of 1",
+                                                    "side": "right",
+                                                    "name": "radius_mean > 0.27",
+                                                    "type": "numerical",
+                                                    "size": 61.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "42 of 0, 0 of 1",
+                                                            "size": 42.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "pred": "18 of 0, 1 of 1",
+                                                            "side": "left",
+                                                            "name": "area_mean > 0.14",
+                                                            "type": "numerical",
+                                                            "size": 19.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 1 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "name": "18 of 0, 0 of 1",
+                                                                    "size": 18.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "pred": "1 of 0, 1 of 1",
+                                                    "side": "left",
+                                                    "name": "concavity_mean > 0.29",
+                                                    "type": "numerical",
+                                                    "size": 2.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "1 of 0, 0 of 1",
+                                                            "size": 1.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "0 of 0, 1 of 1",
+                                                            "size": 1.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "pred": "3 of 0, 2 of 1",
+                                            "side": "left",
+                                            "name": "radius_mean > 0.36",
+                                            "type": "numerical",
+                                            "size": 5.0,
+                                            "children": [
+                                                {
+                                                    "name": "0 of 0, 2 of 1",
+                                                    "size": 2.0,
+                                                    "side": "right"
+                                                },
+                                                {
+                                                    "name": "3 of 0, 0 of 1",
+                                                    "size": 3.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "pred": "34 of 0, 33 of 1",
+                    "side": "left",
+                    "name": "texture_mean > 0.27",
+                    "type": "numerical",
+                    "size": 67.0,
+                    "children": [
+                        {
+                            "pred": "25 of 0, 13 of 1",
+                            "side": "right",
+                            "name": "concavity_worst > 0.22",
+                            "type": "numerical",
+                            "size": 38.0,
+                            "children": [
+                                {
+                                    "name": "14 of 0, 0 of 1",
+                                    "size": 14.0,
+                                    "side": "right"
+                                },
+                                {
+                                    "pred": "11 of 0, 13 of 1",
+                                    "side": "left",
+                                    "name": "texture_mean > 0.4",
+                                    "type": "numerical",
+                                    "size": 24.0,
+                                    "children": [
+                                        {
+                                            "name": "0 of 0, 9 of 1",
+                                            "size": 9.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "11 of 0, 4 of 1",
+                                            "side": "left",
+                                            "name": "symmetry_worst > 0.29",
+                                            "type": "numerical",
+                                            "size": 15.0,
+                                            "children": [
+                                                {
+                                                    "pred": "1 of 0, 3 of 1",
+                                                    "side": "right",
+                                                    "name": "fractal_dimension_worst > 0.13",
+                                                    "type": "numerical",
+                                                    "size": 4.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "0 of 0, 3 of 1",
+                                                            "size": 3.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "1 of 0, 0 of 1",
+                                                            "size": 1.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "pred": "10 of 0, 1 of 1",
+                                                    "side": "left",
+                                                    "name": "fractal_dimension_mean > 0.14",
+                                                    "type": "numerical",
+                                                    "size": 11.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "9 of 0, 0 of 1",
+                                                            "size": 9.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "pred": "1 of 0, 1 of 1",
+                                                            "side": "left",
+                                                            "name": "fractal_dimension_mean > 0.13",
+                                                            "type": "numerical",
+                                                            "size": 2.0,
+                                                            "children": [
+                                                                {
+                                                                    "name": "0 of 0, 1 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "right"
+                                                                },
+                                                                {
+                                                                    "name": "1 of 0, 0 of 1",
+                                                                    "size": 1.0,
+                                                                    "side": "left"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "pred": "9 of 0, 20 of 1",
+                            "side": "left",
+                            "name": "fractal_dimension_worst > 0.1",
+                            "type": "numerical",
+                            "size": 29.0,
+                            "children": [
+                                {
+                                    "pred": "3 of 0, 19 of 1",
+                                    "side": "right",
+                                    "name": "smoothness_mean > 0.83",
+                                    "type": "numerical",
+                                    "size": 22.0,
+                                    "children": [
+                                        {
+                                            "name": "1 of 0, 0 of 1",
+                                            "size": 1.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "pred": "2 of 0, 19 of 1",
+                                            "side": "left",
+                                            "name": "radius_mean > 0.3",
+                                            "type": "numerical",
+                                            "size": 21.0,
+                                            "children": [
+                                                {
+                                                    "pred": "2 of 0, 2 of 1",
+                                                    "side": "right",
+                                                    "name": "texture_mean > 0.11",
+                                                    "type": "numerical",
+                                                    "size": 4.0,
+                                                    "children": [
+                                                        {
+                                                            "name": "2 of 0, 0 of 1",
+                                                            "size": 2.0,
+                                                            "side": "right"
+                                                        },
+                                                        {
+                                                            "name": "0 of 0, 2 of 1",
+                                                            "size": 2.0,
+                                                            "side": "left"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "0 of 0, 17 of 1",
+                                                    "size": 17.0,
+                                                    "side": "left"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "pred": "6 of 0, 1 of 1",
+                                    "side": "left",
+                                    "name": "fractal_dimension_mean > 0.21",
+                                    "type": "numerical",
+                                    "size": 7.0,
+                                    "children": [
+                                        {
+                                            "name": "0 of 0, 1 of 1",
+                                            "size": 1.0,
+                                            "side": "right"
+                                        },
+                                        {
+                                            "name": "6 of 0, 0 of 1",
+                                            "size": 6.0,
+                                            "side": "left"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
