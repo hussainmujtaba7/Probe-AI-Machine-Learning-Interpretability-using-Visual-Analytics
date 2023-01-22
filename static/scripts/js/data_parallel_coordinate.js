@@ -8,12 +8,16 @@ function drawParallel(data) {
     height = 150 - margin.top - margin.bottom;
 
   var x = d3
-      .scaleBand()
-      .rangeRound([0, width + 100])
-      .padding(0.1),
+    .scaleBand()
+    .rangeRound([0, width + 100])
+    .padding(0.1),
     dragging = {};
 
   var line = d3.line();
+
+  let tooltip = d3.select("#tooltip")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   svg_data_PC = d3
     .select("#parallelArea")
@@ -51,20 +55,29 @@ function drawParallel(data) {
     })
     .attr("class", "forepath")
     .attr("d", path)
-    .on("mouseover", function(d) {
+    .on("mouseover", function (d) {
       d3.select(this)
-      .transition()
-      .duration(200)
-      .attr("opacity", "1")
-      .style("stroke-width", "3px");
-  })
-  .on("mouseout", function(d) {
+        .transition()
+        .duration(200)
+        .attr("opacity", "1")
+        .style("stroke-width", "3px");
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Value: </strong> ${d.id}`)
+        .style("left", (d3.event.pageX + 5) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
+    })
+    .on("mouseout", function (d) {
       d3.select(this)
-      .transition()
-      .duration(200)
-      .attr("opacity", ".7")
-      .style("stroke-width", "1px");
-  });
+        .transition()
+        .duration(200)
+        .attr("opacity", ".7")
+        .style("stroke-width", "1px");
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
 
   // Add a group element for each dimension.
   var g = svg_data_PC

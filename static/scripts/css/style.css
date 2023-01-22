@@ -92,7 +92,14 @@ svg {
 .pointer input {
     cursor: pointer;
 }
-
+.tooltip{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 170px;
+    height: 80px;
+    background-color: #D5E1E5;
+}
 .ms-label {
     position: absolute;
     left: 33%;

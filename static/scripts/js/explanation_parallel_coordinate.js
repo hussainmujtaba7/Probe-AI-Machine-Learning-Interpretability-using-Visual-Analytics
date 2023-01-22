@@ -16,7 +16,7 @@ function drawParallel_exp(data,min,max) {
   var line = d3.line();
 
 // Create a tooltip div
-let tooltip = d3.select("body").append("div")
+let tooltip = d3.select("#tooltip")
 .attr("class", "tooltip")
 .style("opacity", 0);
 
@@ -57,7 +57,7 @@ let tooltip = d3.select("body").append("div")
       tooltip.transition()
           .duration(200)
           .style("opacity", .9);
-      tooltip.html(`<strong>Data Point: </strong> ${d.diagnosis} <br> <strong>Value: </strong> ${d.id}`)
+      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Value: </strong> ${d.id}`)
           .style("left", (d3.event.pageX + 5) + "px")
           .style("top", (d3.event.pageY - 28) + "px");
   })

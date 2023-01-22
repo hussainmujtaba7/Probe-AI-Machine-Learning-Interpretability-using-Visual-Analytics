@@ -10,13 +10,13 @@ function drawScatter_exp(data) {
     width = 400 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
-    x_sc_exp = d3.scaleLinear().range([0, width]);
-    y_sc_exp = d3.scaleLinear().range([height, 0]);
+  x_sc_exp = d3.scaleLinear().range([0, width]);
+  y_sc_exp = d3.scaleLinear().range([height, 0]);
 
   var xAxis = d3.axisBottom(x_sc_exp),
     yAxis = d3.axisLeft(y_sc_exp);
 
-    x_sc_exp.domain(
+  x_sc_exp.domain(
     d3.extent(data, function (d) {
       return d["x"];
     })
@@ -26,35 +26,40 @@ function drawScatter_exp(data) {
       return d["y"];
     })
   );
-// Brush for Coordination
-brushScatter_exp = d3
-.brush()
-.extent([
-  [0, 0],
-  [width, height],
-]).on("end", null)
-.on("brush", function () {
-  if (activeBrush === "coordinate") {
-    return brush_scatter_plot_exp(d3.event, global_selected_items, data)
-  } else {return null; }
-})
-.on("end", function () {
-  if (activeBrush === "red") {
-    return  brush_analytics_red(data) 
-  } else if (activeBrush === "green") {
-    return brush_analytics_green(data)
-  } else {
-    return null }
-});
+  // Brush for Coordination
+  brushScatter_exp = d3
+    .brush()
+    .extent([
+      [0, 0],
+      [width, height],
+    ]).on("end", null)
+    .on("brush", function () {
+      if (activeBrush === "coordinate") {
+        return brush_scatter_plot_exp(d3.event, global_selected_items, data)
+      } else { return null; }
+    })
+    .on("end", function () {
+      if (activeBrush === "red") {
+        return brush_analytics_red(data)
+      } else if (activeBrush === "green") {
+        return brush_analytics_green(data)
+      } else {
+        return null
+      }
+    });
 
+  // Create a tooltip div
+  let tooltip = d3.select("#tooltip")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
-    svg_data_sc_exp = d3
+  svg_data_sc_exp = d3
     .select("#scatterArea_explanation")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-    svg_data_sc_exp
+  svg_data_sc_exp
     .append("defs")
     .append("clipPath")
     .attr("id", "clip2")
@@ -74,7 +79,7 @@ brushScatter_exp = d3
 
   // append scatter plot to main chart area
   foreground_sc_exp = focus_exp.append("g")
-  .attr("clip-path", "url(#clip2)")
+    .attr("clip-path", "url(#clip2)")
     .selectAll("dot")
     .data(data)
     .enter()
@@ -91,41 +96,52 @@ brushScatter_exp = d3
     .style("fill", function (d) {
       return color(+d["diagnosis"]);
     })
-    .on("mouseover", function(d) {
+    .on("mouseover", function (d) {
       d3.select(this)
         .transition()
         .duration(200)
         .attr("opacity", 1)
         .attr("r", 6);
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Value: </strong> ${d.id}`)
+        .style("left", (d3.event.pageX + 5) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
     })
-    .on("mouseout", function(d) {
+    .on("mouseout", function (d) {
       d3.select(this)
         .transition()
         .duration(200)
-        .attr("opacity",function()
-        { if (getIntersection(global_selected_items).includes(d.id)) {
-          return "0.5";
-        } else {
-          return "0.1";
-        }})
-        .attr("r",function()
-        { if (getIntersection(global_selected_items).includes(d.id)) {
-          return "4";
-        } else {
-          return "2";
-        }});
+        .attr("opacity", function () {
+          tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+          if (getIntersection(global_selected_items).includes(d.id)) {
+            return "0.5";
+          } else {
+            return "0.1";
+          }
+        })
+        .attr("r", function () {
+          if (getIntersection(global_selected_items).includes(d.id)) {
+            return "4";
+          } else {
+            return "2";
+          }
+        });
     });
 
 
-    focus_exp
+  focus_exp
     .append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
 
-    focus_exp.append("g").attr("class", "axis axis--y").call(yAxis);
+  focus_exp.append("g").attr("class", "axis axis--y").call(yAxis);
 
- 
+
 
 }
 
@@ -135,9 +151,9 @@ function brush_scatter_plot_exp(event, selectedItems, data, allow_recurse = true
 
   global_selected_items = selectedItems;
   var selectedIds = [];
-  var selection=[]
+  var selection = []
   var brushExtent = d3.brushSelection(focus_exp.select(".brushScatterExp").node());
-  if(brushExtent){
+  if (brushExtent) {
     selection.push([brushExtent[0][0], brushExtent[0][1]]);
     selection.push([brushExtent[1][0], brushExtent[1][1]]);
   }
@@ -161,19 +177,19 @@ function brush_scatter_plot_exp(event, selectedItems, data, allow_recurse = true
   }
   console.log(selectedIds);
 
-  if (selectedIds.length === 0 && selection.length===0  ) {
+  if (selectedIds.length === 0 && selection.length === 0) {
     console.log("selectedIds.length === 0");
     let selectedItems_other = getIntersection(global_selected_items);
     console.log(selectedItems_other)
 
-    foreground_sc_exp.attr("r", function(d) {
+    foreground_sc_exp.attr("r", function (d) {
       if (selectedItems_other.includes(d.id)) {
         return "4";
       } else {
         return "2";
       }
     });
-    foreground_sc_exp.attr("opacity", function(d) {
+    foreground_sc_exp.attr("opacity", function (d) {
       if (selectedItems_other.includes(d.id)) {
         return "0.5";
       } else {
@@ -204,9 +220,9 @@ function brush_scatter_plot_exp(event, selectedItems, data, allow_recurse = true
     });
   }
   if (allow_recurse == true) {
-    brush_parallel_chart_exp(undefined,global_selected_items,derived_data,false);
-    brush_parallel_chart(undefined,global_selected_items,original_data,false);
-    brush_scatter_plot(undefined,global_selected_items,tsne_original_data,false);
+    brush_parallel_chart_exp(undefined, global_selected_items, derived_data, false);
+    brush_parallel_chart(undefined, global_selected_items, original_data, false);
+    brush_scatter_plot(undefined, global_selected_items, tsne_original_data, false);
   }
 }
 
@@ -247,7 +263,7 @@ function brush_analytics_red(data) {
       return color(d["diagnosis"]);
     }
   });
-  desision_tree_variable.red=selectedIds;
+  desision_tree_variable.red = selectedIds;
   console.log(desision_tree_variable)
 }
 
@@ -288,16 +304,16 @@ function brush_analytics_green(data) {
       return color(d["diagnosis"]);
     }
   });
-  desision_tree_variable.green=selectedIds;
+  desision_tree_variable.green = selectedIds;
   console.log(desision_tree_variable)
 }
 
 function clear_brushes_SCE(clear_pc) {
-  global_selected_items=clear_pc;
+  global_selected_items = clear_pc;
   console.log("clear_brushes_SCE")
   focus_exp
-  .selectAll(".brushScatterExp").call(brushScatter_exp.move, null);
-  global_selected_items['spe']=all_data_ids;
+    .selectAll(".brushScatterExp").call(brushScatter_exp.move, null);
+  global_selected_items['spe'] = all_data_ids;
   brush_scatter_plot_exp(undefined, global_selected_items, derived_data, true);
-  
+
 }

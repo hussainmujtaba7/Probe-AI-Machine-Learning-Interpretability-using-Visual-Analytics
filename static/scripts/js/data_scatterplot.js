@@ -49,6 +49,10 @@ function drawScatter(data) {
       }
     });
 
+  // Create a tooltip div
+  let tooltip = d3.select("#tooltip")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   svg_data_sc = d3
     .select("#scatterArea")
@@ -99,23 +103,34 @@ function drawScatter(data) {
         .duration(200)
         .attr("opacity", 1)
         .attr("r", 6);
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Value: </strong> ${d.id}`)
+        .style("left", (d3.event.pageX + 5) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
     })
     .on("mouseout", function (d) {
       d3.select(this)
         .transition()
         .duration(200)
-        .attr("opacity",function()
-        { if (getIntersection(global_selected_items).includes(d.id)) {
-          return "0.5";
-        } else {
-          return "0.1";
-        }})
-        .attr("r",function()
-        { if (getIntersection(global_selected_items).includes(d.id)) {
-          return "4";
-        } else {
-          return "2";
-        }});
+        .attr("opacity", function () {
+          tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+          if (getIntersection(global_selected_items).includes(d.id)) {
+            return "0.5";
+          } else {
+            return "0.1";
+          }
+        })
+        .attr("r", function () {
+          if (getIntersection(global_selected_items).includes(d.id)) {
+            return "4";
+          } else {
+            return "2";
+          }
+        });
     });
 
   focus

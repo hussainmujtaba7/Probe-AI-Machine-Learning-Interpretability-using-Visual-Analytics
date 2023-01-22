@@ -113,6 +113,7 @@
           Data Scatterplot Explanation
         </div>
       </div>
+      <div id="tooltip"></div>
     </div>
 
     <diV>
@@ -163,11 +164,6 @@
       <div class="dtree-container" id="dtree-box">
         <span>Decision Tree</span>
         <div id="chartBox" class="card dtree-box"></div>
-        <!-- <div class="dtree-legends">
-          <h3>Legends</h3>
-          Malignant<br>
-          Benign
-        </div> -->
       </div>
     </diV>
   </div>
@@ -186,6 +182,7 @@
       $("#analysis").toggleClass('resize-logo')
       $("#dTree-btn").toggleClass('show')
     });
+    let labels  = ['Malignant','Benign'];
   </script>
 </body>
 
