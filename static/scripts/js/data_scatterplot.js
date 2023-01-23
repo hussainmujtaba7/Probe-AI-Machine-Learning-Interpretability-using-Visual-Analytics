@@ -33,10 +33,10 @@ function drawScatter(data) {
     .extent([
       [0, 0],
       [width, height],
-    ])
+    ]).on("start", null)
     .on("brush", function () {
       if (activeBrush === "coordinate") {
-        return brush_scatter_plot_exp(d3.event, global_selected_items, data)
+        return brush_scatter_plot(d3.event, global_selected_items, data)
       } else { return null; }
     })
     .on("end", function () {
@@ -235,6 +235,6 @@ function clear_brushes_SC(clear_pc) {
   focus
     .selectAll(".brushScatter").call(brushScatter.move, null);
   global_selected_items['sp'] = all_data_ids;
-  brush_scatter_plot(undefined, global_selected_items, original_data, true);
+  brush_scatter_plot(undefined, global_selected_items, tsne_original_data, true);
 
 }

@@ -32,7 +32,7 @@ function drawScatter_exp(data) {
     .extent([
       [0, 0],
       [width, height],
-    ]).on("end", null)
+    ]).on("start", null)
     .on("brush", function () {
       if (activeBrush === "coordinate") {
         return brush_scatter_plot_exp(d3.event, global_selected_items, data)
@@ -334,6 +334,6 @@ function clear_brushes_SCE(clear_pc) {
 
   console.log(desision_tree_variable)
   brush_analytics_red(derived_data)
-  brush_scatter_plot_exp(undefined, global_selected_items, derived_data, true);
+  brush_scatter_plot_exp(undefined, global_selected_items, tsne_derived_data, true);
 
 }
