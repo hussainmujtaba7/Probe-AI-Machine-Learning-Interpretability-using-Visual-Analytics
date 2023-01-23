@@ -1,4 +1,4 @@
-function draw_decision_tree(data) {
+function draw_decision_tree() {
     graphicviz();
 
     function graphicviz() {
@@ -16,7 +16,8 @@ function draw_decision_tree(data) {
 
             var TOTAL_SIZE;
             default_colors = [
-                "#D21F3C","#3B7A57","#FF7F0E","#1F77B4","#c25975", "#d26bff", "#2d5a47", "#093868", "#fcdfe6", "#94a2fa", "#faec94", "#decaee", "#daeeca", "#b54c0a", "#dc1818", "#18dcdc", "#000000", "#340000", "#86194c", "#fef65b", "#ff9b6f", "#491b47", "#171717", "#e8efec", "#1c6047", "#a2bae0", "#4978c3", "#f8fee0", "#dcfb66", "#91fb66", "#29663b", "#b4b7be", "#0088b2", "#88b200", "#c43210", "#f06848", "#f0bc48", "#d293a2", "#cccccc", "#59596a", "#fafae6", "#ffc125", "#ff4e50", "#f0e6fa", "#f6c1c3", "#363636"
+                "#3B7A57","#D21F3C",
+                "#FF7F0E","#1F77B4","#c25975", "#d26bff", "#2d5a47", "#093868", "#fcdfe6", "#94a2fa", "#faec94", "#decaee", "#daeeca", "#b54c0a", "#dc1818", "#18dcdc", "#000000", "#340000", "#86194c", "#fef65b", "#ff9b6f", "#491b47", "#171717", "#e8efec", "#1c6047", "#a2bae0", "#4978c3", "#f8fee0", "#dcfb66", "#91fb66", "#29663b", "#b4b7be", "#0088b2", "#88b200", "#c43210", "#f06848", "#f0bc48", "#d293a2", "#cccccc", "#59596a", "#fafae6", "#ffc125", "#ff4e50", "#f0e6fa", "#f6c1c3", "#363636"
             ]
 
 
@@ -59,10 +60,6 @@ function draw_decision_tree(data) {
 
 
             var margin = { top: 20, right: 120, bottom: 20, left: 90 }, //{ top: 20, right: 120, bottom: 20, left: 180 },
-            //     width = 1000, //2000 + 960 - margin.right - margin.left,
-            //     height = 600;//800 - margin.top - margin.bottom;
-
-                // var margin = { top: 10, right: 60, bottom: 10, left: 9  0 },
                 width = 2700 - margin.left - margin.right,
                 height = 600 - margin.top - margin.bottom;
 
@@ -659,57 +656,6 @@ function draw_decision_tree(data) {
                     update(d, n_labels);
                 }
 
-
-            }
-
-            function createLabels(labels) {
-
-
-                var Size = 100;
-
-
-                var svg1 = d3.select("#chartBox")
-                    .append("svg")
-                    .attr("width", Size)
-                    .attr("height", Size)
-                    .attr("class", "legends");
-
-                console.log(labels.length)
-                console.log(default_colors.slice(0, labels.length))
-                default_colors = default_colors.slice(0, labels.length)
-                if (default_colors.length == 2) default_colors.push('')
-                if (default_colors.length == 0) {
-                    var c_l = default_colors
-                } else {
-                    var c_l = default_colors
-                }
-
-                for (i = 0; i < c_l.length; i++) {
-
-                    console.log(labels[i], "", c_l[i])
-
-                    var legendG = svg1
-                        .append("g")
-                        .attr("transform", function (d) {
-                            return "translate(" + 0 + "," + (30 * i + Size / 33 + Size / 50) + ")"; // place each legend on the right and bump each one down 15 pixels
-                        })
-                        .attr("class", "legends");
-
-                    legendG.append("rect") // make a matching color rect
-                        .attr("width", 15)
-                        .attr("height", 15)
-                        .attr("fill", c_l[i])
-                        .style('visibility', function () {
-                            return labels[i] ? "visible" : "hidden"
-                        })
-
-                    legendG.append("text") // add the text
-                        .text(labels[i])
-                        .style("font-size", 30)
-                        .attr("y", 12)
-                        .attr("x", 21)
-
-                }
 
             }
         });

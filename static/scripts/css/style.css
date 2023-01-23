@@ -103,15 +103,45 @@ svg {
     margin-bottom: 10px;
 }
 
+@font-face {
+    font-family: retro;
+    src: url("./GenericTechno.otf") format("opentype");
+}
+
+.project-title {
+    font-size: 35px;
+    letter-spacing: 0.1em;
+    font-style: italic;
+    font-family: retro;
+    margin-left: 31%;
+    background-image: linear-gradient(0deg, #553c9a, #ee4b2b);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+}
+
 .disabled {
     cursor: not-allowed !important;
     pointer-events: all !important;
     opacity: 0.6;
 }
-.enabled{
+
+.enabled {
     cursor: pointer !important;
     pointer-events: all !important;
     opacity: 1;
+}
+
+#accuracy-box {
+    margin-left: 10px;
+    margin-top: 5%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: #D5E1E5;
 }
 
 #tooltip2 {

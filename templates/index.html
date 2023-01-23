@@ -4,9 +4,9 @@
 
 <head>
   <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='scripts/css/style.css') }}" />
-  <style type="text/css">
-
-  </style>
+  <title>Probe - AI</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/analysis.png') }}">
+  <style type="text/css"></style>
 </head>
 
 <body class='grid-container'>
@@ -43,7 +43,7 @@
 
 
   <div id="sidebar" class="sidebar">
-    <div class="title-logo-container">
+    <div class="title-logo-container" title="Probe - AI">
       <img id="cpu" class="title-logo" src="{{ url_for('static', filename='images/cpu.png') }}" />
       <img id="analysis" class="title-logo" src="{{ url_for('static', filename='images/analysis.png') }}" />
     </div>
@@ -80,6 +80,7 @@
 
   <div class="main-content" id="main-content">
     <div id="cover-spin"></div>
+    <div class="project-title">PROBE - AI</div>
     <div><span id="mode-title">Co-ordinated Mode</span></div>
     <div style="display:inline-flex;margin-top: 5px;">
       <div class="card plotterGraph" id="scatterArea"></div>
@@ -173,7 +174,10 @@
       </div>
       <div class="dtree-container" id="dtree-box">
         <span>Decision Tree</span>
-        <div id="chartBox" class="card dtree-box"></div>
+        <div style="display: flex;">
+          <div id="chartBox" class="card dtree-box"></div>
+          <div  id="accuracy-box">Accuracy : <span id="accuracy-val"></span></div>
+        </div>
       </div>
     </diV>
   </div>

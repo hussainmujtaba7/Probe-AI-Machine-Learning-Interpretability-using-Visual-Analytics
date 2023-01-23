@@ -33,7 +33,9 @@ await $.ajax({
   contentType: 'application/json',
   data: JSON.stringify(dataset)
 }).done(function(response) {
-    var decision_rules = response
     console.log(response)
-    draw_decision_tree(decision_rules);})
+    draw_decision_tree();
+    $('#accuracy-val').text(parseFloat(response).toFixed(4));
+    $("#accuracy-box").addClass('show')
+})
 }

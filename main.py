@@ -40,7 +40,8 @@ def train_decision_tree(data):
     with open("./static/scripts/js/structureC1.json", 'w') as outfile:
         json.dump(extracted_rules, outfile, indent=4)
 
-    return json.dumps(extracted_rules, cls=MyEncoder)
+    # return accuracy
+    return json.dumps(accuracy, cls=MyEncoder)
 
 def generator(clf, features, labels,original_features, node_index=0,side=0):
   

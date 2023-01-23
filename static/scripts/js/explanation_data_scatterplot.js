@@ -105,7 +105,7 @@ function drawScatter_exp(data) {
       tooltip.transition()
         .duration(200)
         .style("opacity", .9);
-      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Value: </strong> ${d.id}`)
+      tooltip.html(`<strong>Data Point: </strong> ${labels[d.diagnosis]} <br><br> <strong>Id: </strong> ${d.id}`)
         .style("left", (d3.event.pageX + 5) + "px")
         .style("top", (d3.event.pageY - 28) + "px");
     })
