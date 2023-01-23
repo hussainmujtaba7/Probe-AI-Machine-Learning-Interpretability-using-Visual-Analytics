@@ -119,64 +119,6 @@ def rules(clf, features, labels, node_index=0):
     return node
 
 
-
-    node = {}
-    if clf.tree_.children_left[node_index] == -1:  # indicates leaf
-        count_labels = zip(clf.tree_.value[node_index, 0], labels)
-        node['pred'] = ', '.join(('{} of {}'.format(int(count), label)
-                                  for count, label in count_labels))
-                                      
-        node['side'] = 'left' if side == 'l' else 'right'                              
-        feature = features[clf.tree_.feature[prev_index]]
-        threshold = clf.tree_.threshold[prev_index]
-        
-            
-        if node_index == 0:
-            node["name"] = 'Root >'
-        elif ('_-_' in feature) and (feature not in original_features):
-            
-            node['name'] =  '{} = {}'.format(feature.split('_-_')[0], feature.split('_-_')[1] ) if side == 'r' else '{} != {}'.format(feature.split('_-_')[0], feature.split('_-_')[1] )  
-            node['type'] = 'categorical'
-        else:
-            node['name'] = '{} > {}'.format(feature, round(threshold,2) ) if side == 'r' else '{} <= {}'.format(feature, round(threshold,2) ) 
-            node['type'] = 'numerical'
-        
-        left_index = clf.tree_.children_left[node_index]
-        right_index = clf.tree_.children_right[node_index]
-        
-        node['size'] = sum (clf.tree_.value[node_index, 0])
-           
-    else:
-
-        count_labels = zip(clf.tree_.value[node_index, 0], labels)
-        node['pred'] = ', '.join(('{} of {}'.format(int(count), label)
-                                  for count, label in count_labels))
-                                      
-        node['side'] = 'left' if side == 'l' else 'right'                              
-        feature = features[clf.tree_.feature[prev_index]]
-        threshold = clf.tree_.threshold[prev_index]
-        
-            
-        if node_index == 0:
-            node["name"] = 'Root >'
-        elif ('_-_' in feature) and (feature not in original_features):
-            
-            node['name'] =  '{} = {}'.format(feature.split('_-_')[0], feature.split('_-_')[1] ) if side == 'r' else '{} != {}'.format(feature.split('_-_')[0], feature.split('_-_')[1] )  
-            node['type'] = 'categorical'
-        else:
-            node['name'] = '{} > {}'.format(feature, round(threshold,2) ) if side == 'r' else '{} <= {}'.format(feature, round(threshold,2) ) 
-            node['type'] = 'numerical'
-        
-        left_index = clf.tree_.children_left[node_index]
-        right_index = clf.tree_.children_right[node_index]
-        
-        node['size'] = sum (clf.tree_.value[node_index, 0])
-        node['children'] = [generator_2(clf, features, labels, original_features, right_index,'r',node_index),
-                            generator_2(clf, features, labels, original_features, left_index,'l',node_index)]
-                            
-        
-    return node
-
 class MyEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.integer):
