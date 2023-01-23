@@ -27,7 +27,7 @@ def train_decision_tree(data):
         X.append([float(val) for val in item.values()])
     feature_names = list(item.keys())
     # Training
-    clf = DecisionTreeClassifier()
+    clf = DecisionTreeClassifier(max_depth=4,random_state=44,ccp_alpha=0.01)
     clf.fit(X, y)
     accuracy=clf.score(X, y)
     print(accuracy)
