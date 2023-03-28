@@ -1,8 +1,9 @@
 # Probe-AI Machine-Learning-Interpretability-using-Visual-Analytics
 
-For a detailed explanation of project, check out the [report](Visual Analytics report.pdf)
 
 Probe-AI is a visual analytics system designed to provide a comprehensive understanding of complex machine learning models. The goal of the project is to enable the identification and interpretation of different model strategies to gain insights into how the models work.
+
+![My Image](images/overall.png)
 
 To achieve this, Probe-AI uses post-hoc explanation methods such as LIME to generate explanations of how the models make predictions. These explanations are then visualized using scatter plots, parallel coordinates, and decision trees to identify patterns and relationships in the feature contribution vectors and real data.
 
@@ -10,6 +11,9 @@ One of the key features of Probe-AI is its ability to compare the model's strate
 
 Overall, Probe-AI provides a powerful tool for understanding complex machine learning models and their strategies. Its use of visualization techniques and post-hoc explanation methods makes it easy to identify patterns and relationships in the data, while its focus on model consistency and accuracy ensures that the models are reliable and trustworthy.
 
+![My Image](images/dtree.png)
+
+## For a detailed explanation of project, check out the report in the repo
 
 
 
